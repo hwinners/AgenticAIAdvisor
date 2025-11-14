@@ -17,6 +17,7 @@ from core.scheduler import pick_sections
 from core.policy_agent import draft_override
 from core.explainer_agent import explain_decision
 from core.pdf_parser import pdf_to_transcript
+from core.chat_agent import chat_with_student
 
 app = FastAPI(title="Agentic Degree Advisor")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
@@ -96,3 +97,29 @@ def override_draft_endpoint(payload: dict):
 def explain(req: ExplainRequest):
     text = explain_decision({"planned_terms": req.planned_terms}, req.requirements, req.course, req.term)
     return {"explanation": text}
+
+class ChatMessage(BaseModel):
+    role: str  # "user" or "assistant"
+    content: str
+
+class ChatRequest(BaseModel):
+    transcript: dict
+    program_id: str = DEFAULT_PROGRAM
+    goals: str = "Graduate on time with a balanced workload."
+    preferences: dict = {}
+    history: list[ChatMessage] = []
+    term_sequence: list = [OFFERINGS.get("term", "2026S"), "2026F", "2027S"]
+
+@app.post("/chat")
+def chat(req: ChatRequest):
+    program = CATALOG["programs"][req.program_id]
+    result = chat_with_student(
+        transcript=req.transcript,
+        program=program,
+        goals=req.goals,
+        preferences=req.preferences,
+        history=[m.model_dump() for m in req.history],
+        term_sequence=req.term_sequence,
+    )
+    # result already has reply + engine outputs
+    return result

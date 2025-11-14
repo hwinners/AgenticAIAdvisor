@@ -6,3 +6,16 @@ export async function plan(transcript:any,program_id:string){const r=await fetch
 export async function schedule(planned_terms:any[]){const r=await fetch(`${BASE}/schedule`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({planned_terms})});return r.json();}
 export async function overrideDraft(payload:any){const r=await fetch(`${BASE}/override_draft`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});return r.json();}
 export async function explain(payload:any){const r=await fetch(`${BASE}/explain`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});return r.json();}
+
+// frontend/src/api.ts
+
+// ...existing imports + BASE etc...
+
+export async function chat(payload: any) {
+  const res = await fetch(`${BASE}/chat`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  return res.json()
+}

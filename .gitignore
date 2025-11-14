@@ -1,0 +1,12 @@
+# Ignore env files
+backend/.env
+frontend/.env
+
+# Ignore Python venv
+backend/.venv/
+
+# Ignore node modules
+frontend/node_modules/
+
+# Ignore build outputs
+frontend/dist/
