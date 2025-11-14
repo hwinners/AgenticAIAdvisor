@@ -1,0 +1,53 @@
+{
+  "term": "2026S",
+  "sections": {
+    "COP3530": [
+      {
+        "crn": "12345",
+        "days": "MWF",
+        "start": "10:00",
+        "end": "10:50",
+        "cap": 40,
+        "enrolled": 38
+      },
+      {
+        "crn": "67890",
+        "days": "TR",
+        "start": "14:00",
+        "end": "15:15",
+        "cap": 40,
+        "enrolled": 40
+      }
+    ],
+    "CDA3103": [
+      {
+        "crn": "23456",
+        "days": "TR",
+        "start": "11:00",
+        "end": "12:15",
+        "cap": 50,
+        "enrolled": 41
+      }
+    ],
+    "CEN4020": [
+      {
+        "crn": "34567",
+        "days": "MWF",
+        "start": "09:00",
+        "end": "09:50",
+        "cap": 40,
+        "enrolled": 35
+      }
+    ],
+    "CIS4360": [
+      {
+        "crn": "45678",
+        "days": "TR",
+        "start": "15:30",
+        "end": "16:45",
+        "cap": 35,
+        "enrolled": 35
+      }
+    ]
+  }
+}

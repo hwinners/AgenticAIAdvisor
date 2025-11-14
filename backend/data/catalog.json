@@ -1,0 +1,111 @@
+{
+  "programs": {
+    "BSCSE": {
+      "total_credits": 120,
+      "min_residence_credits": 30,
+      "requirements": [
+        {
+          "id": "math_core",
+          "type": "all_of",
+          "courses": [
+            "MAC2311",
+            "MAC2312",
+            "MAP2302"
+          ]
+        },
+        {
+          "id": "cs_core",
+          "type": "all_of",
+          "courses": [
+            "COP3014",
+            "COP3530",
+            "CDA3103",
+            "CEN4020"
+          ]
+        },
+        {
+          "id": "tech_electives",
+          "type": "choose_n",
+          "n": 3,
+          "from": [
+            "CIS4301",
+            "CIS4360",
+            "CAP4612",
+            "CNT4007"
+          ]
+        },
+        {
+          "id": "gen_ed",
+          "type": "credits_at_least",
+          "area": "gen_ed",
+          "credits": 36
+        }
+      ],
+      "prereqs": {
+        "COP3530": [
+          "COP3014",
+          "MAC2311"
+        ],
+        "CDA3103": [
+          "COP3014"
+        ],
+        "CEN4020": [
+          "COP3530"
+        ],
+        "CIS4360": [
+          "COP3530"
+        ]
+      },
+      "course_meta": {
+        "MAC2311": {
+          "credits": 4,
+          "area": "math"
+        },
+        "MAC2312": {
+          "credits": 4,
+          "area": "math"
+        },
+        "MAP2302": {
+          "credits": 3,
+          "area": "math"
+        },
+        "COP3014": {
+          "credits": 3,
+          "area": "cs"
+        },
+        "COP3530": {
+          "credits": 3,
+          "area": "cs"
+        },
+        "CDA3103": {
+          "credits": 3,
+          "area": "cs"
+        },
+        "CEN4020": {
+          "credits": 3,
+          "area": "cs"
+        },
+        "CIS4301": {
+          "credits": 3,
+          "area": "cs"
+        },
+        "CIS4360": {
+          "credits": 3,
+          "area": "cs"
+        },
+        "CAP4612": {
+          "credits": 3,
+          "area": "cs"
+        },
+        "CNT4007": {
+          "credits": 3,
+          "area": "cs"
+        },
+        "AML2010": {
+          "credits": 3,
+          "area": "gen_ed"
+        }
+      }
+    }
+  }
+}

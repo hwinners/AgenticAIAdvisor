@@ -1,0 +1,25 @@
+{
+  "student": {
+    "id": "Z12345678",
+    "name": "Maria Cuadra",
+    "program": "BSCSE"
+  },
+  "taken": [
+    {
+      "code": "MAC2311",
+      "term": "2023F",
+      "grade": "A"
+    },
+    {
+      "code": "COP3014",
+      "term": "2024S",
+      "grade": "B+"
+    },
+    {
+      "code": "AML2010",
+      "term": "2024S",
+      "grade": "A-"
+    }
+  ],
+  "transfer_credits": 6
+}
