@@ -1,0 +1,1 @@
+import React from'react';type Props={planned_terms:any[]|null};export default function PlanView({planned_terms}:Props){if(!planned_terms)return null;return(<div className='card'><h3>3) Planned Pathway</h3>{planned_terms.map((t,i)=>(<div key={i}><strong>{t.term}</strong> — {t.credits} credits<pre>{JSON.stringify(t.courses,null,2)}</pre></div>))}</div>);}

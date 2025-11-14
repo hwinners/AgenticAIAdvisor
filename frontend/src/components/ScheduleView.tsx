@@ -1,0 +1,1 @@
+import React from'react';type Props={chosen:any[]|null,needs:any[]|null};export default function ScheduleView({chosen,needs}:Props){if(!chosen)return null;return(<div className='card'><h3>4) Proposed Schedule (Next Term)</h3><pre>{JSON.stringify(chosen,null,2)}</pre>{needs&&needs.length?(<p>⚠️ Overrides needed for: {needs.map(n=>n.course).join(', ')}</p>):null}</div>);}

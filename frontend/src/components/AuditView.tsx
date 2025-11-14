@@ -1,0 +1,1 @@
+import React from'react';type Props={audit:any[]|null};export default function AuditView({audit}:Props){if(!audit)return null;return(<div className='card'><h3>2) Degree Audit</h3>{audit.map((r,i)=>(<div key={i}><strong>{r.id}</strong> — {r.met?'✅ Met':'❌ Missing'}<pre>{JSON.stringify(r.details,null,2)}</pre></div>))}</div>);}
