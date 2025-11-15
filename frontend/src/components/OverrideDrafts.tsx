@@ -27,7 +27,7 @@ export default function OverrideDrafts({
 
   return (
     <div className="card">
-      <h3>5) Policy Automation & Explainability</h3>
+      <h3>Policy Automation & Explainability</h3>
       <p>
         Next term: <strong>{next.term}</strong>
       </p>

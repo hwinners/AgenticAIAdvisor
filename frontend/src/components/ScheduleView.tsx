@@ -58,7 +58,7 @@ export default function ScheduleView({ term, chosen, needs }: Props) {
 
   return (
     <div className="card">
-      <h3>4) Proposed Schedule</h3>
+      <h3>Proposed Schedule</h3>
       {term && (
         <p>
           Term: <strong>{term}</strong>
