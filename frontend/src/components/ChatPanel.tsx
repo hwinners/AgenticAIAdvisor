@@ -115,7 +115,7 @@ export default function ChatPanel({
               <strong style={{ fontSize: 11, opacity: 0.8 }}>
                 {m.role === 'user' ? 'You' : 'Advisor'}
               </strong>
-              <div style={{ marginTop: 2 }}>{m.content}</div>
+              <div style={{ marginTop: 2, whiteSpace: 'pre-wrap' }}>{m.content}</div>
             </div>
           </div>
         ))}
