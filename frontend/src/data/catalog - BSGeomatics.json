@@ -1,386 +1,172 @@
-[
-  {
-    "Unnamed: 0":"Course Code",
-    "Unnamed: 1":"Course Name",
-    "Unnamed: 2":"Credits",
-    "Unnamed: 3":"Prerequisites",
-    "Unnamed: 4":"Corequisites",
-    "Unnamed: 5":"Type",
-    "Unnamed: 6":"Availability",
-    "Unnamed: 7":"Requirement Group",
-    "Unnamed: 8":"Category",
-    "Unnamed: 9":"Notes"
+{
+  "program_name": "B.S. in Geomatics",
+  "total_credits": 120,
+  "min_residence_credits": 30,
+
+  "requirements": [
+    {
+      "id": "math_core",
+      "type": "all_of",
+      "courses": ["MAC2311", "MAC2312", "MAP3305"]
+    },
+    {
+      "id": "statistics_elective",
+      "type": "choose_1",
+      "from": ["STA2023"]
+    },
+    {
+      "id": "science_core",
+      "type": "all_of",
+      "courses": [
+        "CHM2045", "CHM2045L",
+        "GLY2010C",
+        "PHY2048", "PHY2048L"
+      ]
+    },
+    {
+      "id": "geomatics_core",
+      "type": "all_of",
+      "courses": [
+        "SUR3103", "SUR3103L",
+        "SUR3141", "SUR3141L",
+        "SUR3520",
+        "SUR4530", "SUR4530L",
+        "SUR4403",
+        "SUR4463"
+      ]
+    },
+    {
+      "id": "engineering_core",
+      "type": "all_of",
+      "courses": [
+        "EGN1002",
+        "CGN2327"
+      ]
+    },
+    {
+      "id": "mapping_requirement",
+      "type": "choose_1",
+      "from": ["GIS3015C", "CGN4321"]
+    },
+    {
+      "id": "physical_science_electives",
+      "type": "choose_credits",
+      "credits": 6,
+      "from": ["PHYSNC1", "PHYSNC2"]
+    },
+    {
+      "id": "technical_electives",
+      "type": "choose_n",
+      "n": 3,
+      "from": [
+        "ANT4463",
+        "CCE4031",
+        "CWR4223",
+        "CWR4307",
+        "ECP4302",
+        "EGN4613",
+        "ENT4024",
+        "GLY4241",
+        "GLY4822",
+        "INR4350"
+      ]
+    },
+    {
+      "id": "business_elective",
+      "type": "choose_1",
+      "from": ["BUSINESS_ELECTIVE"]
+    },
+    {
+      "id": "reality_capture",
+      "type": "choose_1",
+      "from": ["REALITY1", "REALITY2"]
+    },
+    {
+      "id": "construction_engineering_core",
+      "type": "choose_1",
+      "from": ["CONST1", "CONST2"]
+    },
+    {
+      "id": "capstone",
+      "type": "all_of",
+      "courses": ["ETG4951"]
+    }
+  ],
+
+  "prereqs": {
+    "MAC2311": ["MAC2210"],
+    "MAC2312": ["MAC2311"],
+    "MAP3305": ["MAC2312"],
+    "PHY2048": ["MAC2311"],
+    "PHY2048L": ["MAC2311", "PHY2048"],
+
+    "SUR3103": ["MAC2210"],
+    "SUR3103L": ["MAC2210", "SUR3103"],
+    "SUR3141": ["SUR3103"],
+    "SUR3141L": ["SUR3103", "SUR3141"],
+    "SUR3520": ["STA2023", "MAC2311", "SUR3103"],
+    "SUR4530": ["SUR3141"],
+    "SUR4530L": ["SUR3141", "SUR4530"],
+    "SUR4403": ["SUR3141"],
+
+    "EGN1002": [],
+    "CGN2327": [],
+    "SUR4463": ["CGN2327"],
+
+    "ETG4951": ["SUR4463"]
   },
-  {
-    "Unnamed: 0":"CHM 2045",
-    "Unnamed: 1":"General Chemistry Lab",
-    "Unnamed: 2":null,
-    "Unnamed: 3":null,
-    "Unnamed: 4":"CHM 2045L",
-    "Unnamed: 5":"Science",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Chemistry",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"CHM 2045L",
-    "Unnamed: 1":"General Chemistry",
-    "Unnamed: 2":"4",
-    "Unnamed: 3":null,
-    "Unnamed: 4":"CHM 2045",
-    "Unnamed: 5":"Science",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Chemistry",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"GLY 2010C",
-    "Unnamed: 1":"Physical Geology",
-    "Unnamed: 2":"4",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Science",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geology",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"MAC 2210",
-    "Unnamed: 1":"Introduction to Calculus with Applications",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Math",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Math",
-    "Unnamed: 9":"Optional (either this or MAC 2312)"
-  },
-  {
-    "Unnamed: 0":"MAC 2311",
-    "Unnamed: 1":"Calc w\/ Analytic Geometry 1",
-    "Unnamed: 2":"4",
-    "Unnamed: 3":"MAC 2210",
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Math",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Math",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"MAC 2312",
-    "Unnamed: 1":"Calc w\/ Analytic Geometry 2",
-    "Unnamed: 2":"4",
-    "Unnamed: 3":"MAC 2311",
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Math",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Math",
-    "Unnamed: 9":"Optional"
-  },
-  {
-    "Unnamed: 0":"STA 2023",
-    "Unnamed: 1":"Introductory Statistics",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Math",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Statistics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"PHY 2048",
-    "Unnamed: 1":"Gen Physics 1",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":"MAC 2311",
-    "Unnamed: 4":"PHY 2048L",
-    "Unnamed: 5":"Science",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Physics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"PHY 2048L",
-    "Unnamed: 1":"Gen Physics Lab",
-    "Unnamed: 2":"1",
-    "Unnamed: 3":"MAC 2311",
-    "Unnamed: 4":"PHY 2048",
-    "Unnamed: 5":"Science",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Physics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 3520",
-    "Unnamed: 1":"Measurement Theory & Data Adjustments",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":"STA 2023 AND MAC 2311 AND SUR 3103",
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"Fall only",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 3103",
-    "Unnamed: 1":"Geomatics",
-    "Unnamed: 2":"2",
-    "Unnamed: 3":"MAC 2210",
-    "Unnamed: 4":"SUR 3103L",
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 3103L",
-    "Unnamed: 1":"Geomatics Lab",
-    "Unnamed: 2":"1",
-    "Unnamed: 3":"MAC 2210",
-    "Unnamed: 4":"SUR 3103",
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"EGN 1002",
-    "Unnamed: 1":"Fundamentals of Engineering",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Engineering",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"CGN 2327",
-    "Unnamed: 1":"Comp-Aided Design",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Career-Grade network",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 4463",
-    "Unnamed: 1":"Subdivision Design",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":"CGN 2327",
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"Fall only",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"CGN 4321",
-    "Unnamed: 1":"Intro to Mapping",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Career-Grade network",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"GIS 3015C",
-    "Unnamed: 1":"Intro to Mapping",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Career-Grade network",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 3141",
-    "Unnamed: 1":"Auto. Sur. & Mapping",
-    "Unnamed: 2":"2",
-    "Unnamed: 3":"SUR 3103",
-    "Unnamed: 4":"SUR 3141L",
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"Fall only",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 3141L",
-    "Unnamed: 1":"Auto. Sur. & Mapping Lab",
-    "Unnamed: 2":"1",
-    "Unnamed: 3":"SUR 3103",
-    "Unnamed: 4":"SUR 3141",
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"Fall only",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 4530",
-    "Unnamed: 1":"Geodesy & Geodetic Position",
-    "Unnamed: 2":"2",
-    "Unnamed: 3":"SUR 3141",
-    "Unnamed: 4":"SUR 4530L",
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"Spring only",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 4530L",
-    "Unnamed: 1":"G & G Position Lab",
-    "Unnamed: 2":"1",
-    "Unnamed: 3":"SUR 3141",
-    "Unnamed: 4":"SUR 4530",
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"Spring only",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"SUR 4403",
-    "Unnamed: 1":"Cadastral Principles and Legal Aspects",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":"SUR 3141",
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"Spring only",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Geomatics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"ETG 4951",
-    "Unnamed: 1":"Eng. Tech Capstone",
-    "Unnamed: 2":"3",
-    "Unnamed: 3":"SUR 4463",
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Core",
-    "Unnamed: 6":"Fall AND Spring",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Engineering Tech",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"Physical & Natural Science Elective",
-    "Unnamed: 1":null,
-    "Unnamed: 2":"3-4",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Elective",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Physics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"Physical & Natural Science Elective",
-    "Unnamed: 1":null,
-    "Unnamed: 2":"3-4",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Elective",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Physics",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"Technical Electives (minimum 23 Credits)",
-    "Unnamed: 1":null,
-    "Unnamed: 2":"23",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Elective",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Technical",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"Business Elective",
-    "Unnamed: 1":null,
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Elective",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Business",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"Construction Engineering Core",
-    "Unnamed: 1":null,
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Elective",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Construction",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"Construction Engineering Core",
-    "Unnamed: 1":null,
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Elective",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Construction",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"Reality Capture Core Elective",
-    "Unnamed: 1":null,
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Elective",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Reality Capture",
-    "Unnamed: 9":null
-  },
-  {
-    "Unnamed: 0":"Reality Capture Core Elective",
-    "Unnamed: 1":null,
-    "Unnamed: 2":"3",
-    "Unnamed: 3":null,
-    "Unnamed: 4":null,
-    "Unnamed: 5":"Elective",
-    "Unnamed: 6":"All Terms",
-    "Unnamed: 7":null,
-    "Unnamed: 8":"Reality Capture",
-    "Unnamed: 9":null
+
+  "course_meta": {
+    "CHM2045": { "credits": 3, "area": "science" },
+    "CHM2045L": { "credits": 1, "area": "science" },
+    "GLY2010C": { "credits": 4, "area": "science" },
+
+    "MAC2210": { "credits": 3, "area": "math" },
+    "MAC2311": { "credits": 4, "area": "math" },
+    "MAC2312": { "credits": 4, "area": "math" },
+    "MAP3305": { "credits": 3, "area": "math" },
+
+    "STA2023": { "credits": 3, "area": "math" },
+
+    "PHY2048": { "credits": 3, "area": "science" },
+    "PHY2048L": { "credits": 1, "area": "science" },
+
+    "SUR3103": { "credits": 2, "area": "geomatics" },
+    "SUR3103L": { "credits": 1, "area": "geomatics" },
+    "SUR3141": { "credits": 2, "area": "geomatics" },
+    "SUR3141L": { "credits": 1, "area": "geomatics" },
+    "SUR3520": { "credits": 3, "area": "geomatics" },
+    "SUR4530": { "credits": 2, "area": "geomatics" },
+    "SUR4530L": { "credits": 1, "area": "geomatics" },
+    "SUR4403": { "credits": 3, "area": "geomatics" },
+    "SUR4463": { "credits": 3, "area": "geomatics" },
+
+    "EGN1002": { "credits": 3, "area": "engineering" },
+    "CGN2327": { "credits": 3, "area": "engineering" },
+
+    "GIS3015C": { "credits": 3, "area": "mapping" },
+    "CGN4321": { "credits": 3, "area": "mapping" },
+
+    "PHYSNC1": { "credits": 4, "area": "science" },
+    "PHYSNC2": { "credits": 4, "area": "science" },
+
+    "ANT4463": { "credits": 3, "area": "technical" },
+    "CCE4031": { "credits": 3, "area": "technical" },
+    "CWR4223": { "credits": 3, "area": "technical" },
+    "CWR4307": { "credits": 3, "area": "technical" },
+    "ECP4302": { "credits": 3, "area": "technical" },
+    "EGN4613": { "credits": 3, "area": "technical" },
+    "ENT4024": { "credits": 3, "area": "technical" },
+    "GLY4241": { "credits": 3, "area": "technical" },
+    "GLY4822": { "credits": 3, "area": "technical" },
+    "INR4350": { "credits": 3, "area": "technical" },
+
+    "BUSINESS_ELECTIVE": { "credits": 3, "area": "business" },
+    "CONST1": { "credits": 3, "area": "construction" },
+    "CONST2": { "credits": 3, "area": "construction" },
+    "REALITY1": { "credits": 3, "area": "reality_capture" },
+    "REALITY2": { "credits": 3, "area": "reality_capture" },
+
+    "ETG4951": { "credits": 3, "area": "capstone" }
   }
-]
+}
