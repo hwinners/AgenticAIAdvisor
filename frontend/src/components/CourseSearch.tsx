@@ -1,78 +1,87 @@
-import React, { useState } from "react";
-export interface CourseRow {
-  [key: string]: any; // allow unknown CSV columns safely
 
-  "Unnamed: 0"?: string; 
-  "Unnamed: 1"?: string;
-  "Unnamed: 2"?: string;
+import React, { useState } from "react";
+import Fuse from "fuse.js";
+
+export interface CourseRow {
+  [key: string]: any;
+
+  "Unnamed: 0"?: string;  // Course Code
+  "Unnamed: 1"?: string;  // Course Name
+  "Unnamed: 2"?: string;  // Credits
   "Unnamed: 3"?: string | null;
   "Unnamed: 4"?: string | null;
   "Unnamed: 5"?: string | null;
   "Unnamed: 6"?: string | null;
   "Unnamed: 7"?: string | null;
-  "Unnamed: 8"?: string;   // CATEGORY
+  "Unnamed: 8"?: string | null;   // Category
   "Unnamed: 9"?: string | null;
 }
-
-
-// Import JSON catalogs
+ 
+// IMPORT ALL JSON FILES HERE
 import BA_CS from "../data/catalog - BAComputerScience.json";
-import BS_OCEAN from "../data/catalog - BSCivil.json";
-import BS_MECH from "../data/catalog - BSComputerE.json";
-import BS_GEO from "../data/catalog - BSComputerScience.json";
-import BS_ENV from "../data/catalog - BSDataScience&A.json";
-import BS_CIVIL from "../data/catalog - BSElectrical.json";
-import BS_EE from "../data/catalog - BSEnvironmental.json";
-import BS_CE from "../data/catalog - BSGeomatics.json";
-import BS_DS from "../data/catalog - BSMechanical.json";
-import BS_CS2 from "../data/catalog - BSOcean.json";
+import BS_CS from "../data/catalog - BSComputerScience.json";
+import BS_DS from "../data/catalog - BSDataScience&A.json";
+import BS_ME from "../data/catalog - BSMechanical.json";
+import BS_OE from "../data/catalog - BSOcean.json";
+import BS_CE from "../data/catalog - BSCivil.json";
+import BS_EE from "../data/catalog - BSElectrical.json";
+import BS_EN from "../data/catalog - BSEnvironmental.json";
+import BS_GEO from "../data/catalog - BSGeomatics.json";
+import BS_CENG from "../data/catalog - BSComputerE.json";
 
-// Combine all courses into one list
-const ALL: CourseRow[] = [
-  ...(BA_CS as CourseRow[]),
-  ...(BS_OCEAN as CourseRow[]),
-  ...(BS_MECH as CourseRow[]),
-  ...(BS_GEO as CourseRow[]),
-  ...(BS_ENV as CourseRow[]),
-  ...(BS_CIVIL as CourseRow[]),
-  ...(BS_EE as CourseRow[]),
-  ...(BS_CE as CourseRow[]),
-  ...(BS_DS as CourseRow[]),
-  ...(BS_CS2 as CourseRow[])
-];
+// Combine & filter header rows
+const ALL_RAW = [
+  BA_CS,
+  BS_CS,
+  BS_DS,
+  BS_ME,
+  BS_OE,
+  BS_CE,
+  BS_EE,
+  BS_EN,
+  BS_GEO,
+  BS_CENG
+].flat() as CourseRow[];
 
-
-// Filter out header rows (where course code = "Course Code")
-const COURSES = ALL.filter(
-  (row) => row["Unnamed: 0"] !== "Course Code" && row["Unnamed: 0"] !== ""
+const COURSES = ALL_RAW.filter(
+  row => row["Unnamed: 0"] && row["Unnamed: 0"] !== "Course Code"
 );
+
+// Fuzzy search configuration
+const fuse = new Fuse(COURSES, {
+  includeScore: true,
+  threshold: 0.35,   // GOOD fuzzy matching (0 = strict, 1 = very loose)
+  keys: [
+    "Unnamed: 0",   // course code
+    "Unnamed: 1",   // course name
+    "Unnamed: 8"    // category
+  ]
+});
 
 export default function CourseSearch() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<CourseRow[]>([]);
 
-  // Perform search
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
 
-    const q = query.toLowerCase();
+    if (!query.trim()) {
+      setResults([]);
+      return;
+    }
 
-    const matches = COURSES.filter((r) =>
-      (r["Unnamed: 8"] || "").toLowerCase().includes(q) // category column
-    );
-
-    setResults(matches);
+    const found = fuse.search(query).map(r => r.item);
+    setResults(found);
   }
 
   return (
     <div className="card bg-gray-900 text-white p-6 rounded-lg shadow-lg mt-6">
-      <h3 className="text-2xl font-bold mb-4">🔍 Search Courses by Category</h3>
+      <h3 className="text-2xl font-bold mb-4">🔍 Smart Course Search (Fuzzy)</h3>
 
-      {/* Search bar */}
       <form onSubmit={handleSearch} className="flex gap-3 mb-4">
         <input
           type="text"
-          placeholder="Search for 'ai', 'cybersecurity', 'math', etc."
+          placeholder="Try: ai, cyber, algorithm, security, calculus…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="flex-1 p-2 bg-gray-800 border border-gray-700 rounded text-white"
@@ -85,12 +94,10 @@ export default function CourseSearch() {
         </button>
       </form>
 
-      {/* Search results */}
+      {/* Results */}
       {results.length > 0 ? (
         <div>
-          <h4 className="text-xl font-semibold mb-2">
-            Results ({results.length})
-          </h4>
+          <h4 className="text-xl font-semibold mb-2">Results ({results.length})</h4>
           <ul className="space-y-2">
             {results.map((c, i) => (
               <li
@@ -100,15 +107,15 @@ export default function CourseSearch() {
                 <strong className="text-blue-300">{c["Unnamed: 0"]}</strong> —{" "}
                 {c["Unnamed: 1"]}
                 <p className="text-sm text-gray-400">
-                  Category: {c["Unnamed: 8"]}
+                  Category: {c["Unnamed: 8"] || "None"}
                 </p>
               </li>
             ))}
           </ul>
         </div>
-      ) : query.length > 0 ? (
-        <p className="text-red-400">No courses found for “{query}”.</p>
-      ) : null}
+      ) : (
+        query.length > 0 && <p className="text-red-400">No matches for “{query}”.</p>
+      )}
     </div>
   );
 }
