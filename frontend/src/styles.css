@@ -77,7 +77,6 @@ body::before{
 }
 
 .container h1{
-    border: none;
 	margin:0.5rem 0 0.25rem 0; /* small top margin inside container */
 	color: #eef2ff;
 	font-weight:700;
