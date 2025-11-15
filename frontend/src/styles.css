@@ -1,1 +1,132 @@
-:root{font-family:Inter,system-ui,Avenir,Helvetica,Arial,sans-serif;}body{margin:0;background:#0b1020;color:#e6e9f5;}.container{max-width:1080px;margin:2rem auto;padding:1rem;}.card{background:#131a35;border:1px solid #253053;border-radius:16px;padding:16px;margin-bottom:16px;}.btn{padding:10px 14px;border-radius:10px;background:#5b7cfa;border:none;color:white;cursor:pointer;}pre{white-space:pre-wrap;}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root{
+	--bg-start: #050007; /* very dark */
+	--bg-mid: #0b0720;   /* deep indigo */
+	--bg-end: #4b1976;   /* purple */
+	--muted: #aeb6df;
+	--card-bg: rgba(18,20,36,0.6);
+	--glass-border: rgba(255,255,255,0.04);
+	--accent: #7c6cff;
+	font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Page background: subtle ombre (black -> purple) and centered layout. */
+html{
+	min-height:100%;
+	background: #000;
+	background-attachment: fixed;
+}
+
+body{
+	position:relative;
+	margin:0;
+	color:var(--muted);
+	background:transparent; /* let the pseudo-element provide the decorative background */
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	min-height:100vh;
+	display:flex;
+	align-items:flex-start; /* keep content starting from top so long pages scroll naturally */
+	justify-content:center;
+	padding:3.5rem 2rem 2rem 2rem; /* extra top padding so title isn't flush to viewport */
+}
+
+/* Layered, blurred color "blobs" behind the UI to match the powerpoint */
+body::before{
+	content: "";
+	position:fixed;
+	inset:0;
+	z-index:-1;
+	pointer-events:none;
+	background-image:
+		radial-gradient(600px 600px at 10% 5%, rgba(210,30,120,0.88) 0%, rgba(210,30,120,0.10) 22%, transparent 48%),
+		radial-gradient(800px 700px at 85% 6%, rgba(120,40,230,0.82) 0%, rgba(120,40,230,0.08) 24%, transparent 48%),
+		radial-gradient(500px 480px at 82% 78%, rgba(255,90,70,0.92) 0%, rgba(255,90,70,0.10) 20%, transparent 52%),
+		radial-gradient(900px 700px at 30% 10%, rgba(140,10,60,0.72) 0%, rgba(140,10,60,0.06) 28%, transparent 56%),
+		radial-gradient(1200px 600px at 50% 45%, rgba(0,0,0,0.85) 0%, transparent 30%);
+	background-repeat: no-repeat;
+	filter: blur(80px) saturate(140%);
+	opacity:0.98;
+	transform:translateZ(0);
+}
+
+/* Centered, polished app panel */
+.container{
+	width: min(1200px, 96%);
+	margin:0;
+	padding:3rem;
+	min-height:640px;
+	border-radius:18px;
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+	box-shadow: 0 14px 40px rgba(11,8,30,0.65), inset 0 1px 0 rgba(255,255,255,0.02);
+	/* Remove all borders for a clean, borderless panel */
+	border: none;
+	backdrop-filter: blur(6px) saturate(120%);
+}
+
+/* Headings and text */
+
+.page-title{
+	font-size:0.875rem;
+	color:var(--muted);
+	text-align:center;
+	margin-bottom:0.5rem;
+	font-weight:400;
+	letter-spacing:0.5px;
+}
+
+.container h1{
+    border: none;
+	margin:0.5rem 0 0.25rem 0; /* small top margin inside container */
+	color: #eef2ff;
+	font-weight:700;
+	letter-spacing:0.2px;
+	font-size:clamp(1.4rem, 2.2vw, 2rem);
+	text-align:center;
+}
+
+.container p{margin-top:0;margin-bottom:1rem;color:var(--muted);text-align:center}
+
+.card{
+	background:var(--card-bg);
+	border:1px solid rgba(255,255,255,0.03);
+	border-radius:12px;
+	padding:18px;
+	margin-bottom:16px;
+	box-shadow: 0 6px 18px rgba(6,8,20,0.5);
+}
+
+/* Buttons */
+.btn{
+	padding:10px 16px;
+	border-radius:10px;
+	background:linear-gradient(90deg,var(--accent),#5672ff);
+	border:none;
+	color:white;
+	cursor:pointer;
+	font-weight:600;
+	transition:transform .14s ease, box-shadow .14s ease, opacity .12s ease;
+	box-shadow: 0 6px 18px rgba(98,77,255,0.18);
+}
+.btn:hover{transform:translateY(-2px);opacity:0.98}
+.btn:active{transform:translateY(0)}
+
+/* Utility */
+pre{white-space:pre-wrap;}
+
+/* Responsive tweaks */
+@media (max-width:640px){
+	.container{padding:1.25rem;border-radius:12px}
+	h1{font-size:1.25rem}
+}
+
+/* Small accessibility: focus outline */
+.btn:focus{outline:3px solid rgba(124,108,255,0.18);outline-offset:2px}
+
+/* Make form elements a touch more visible */
+input,textarea,select{background:rgba(255,255,255,0.03);color:var(--muted);border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:8px}
+
+/* Keep existing component visuals compatible */
+.container .card + .card{margin-top:8px}
+
