@@ -1,15 +1,11 @@
 # backend/core/chat_agent.py
 
-import os
 import json
 from typing import List, Dict, Any
-from openai import OpenAI
 
 from .audit import audit_program
 from .planner import greedy_plan
-
-MODEL = os.getenv("MODEL_NAME", "gpt-4o-mini")
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+from .llm import client, MODEL
 
 SYSTEM_PROMPT = """
 You are an academic advising assistant for engineering students.
