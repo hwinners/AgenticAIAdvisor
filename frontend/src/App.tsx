@@ -74,7 +74,7 @@ export default function App() {
 
       
       <UploadTranscript onLoaded={handleLoaded} />
-      {auditRes && <AuditView audit={auditRes} />}
+      {auditRes && <AuditView audit={auditRes} selectedMajor={selectedMajor} />}
       {planned && (
         <PlanView planned_terms={planned} transcript={transcript} selectedMajor={selectedMajor} />
       )}
