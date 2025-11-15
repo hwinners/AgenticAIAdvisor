@@ -109,13 +109,13 @@ export default function PlanView({ planned_terms, transcript, selectedMajor }: P
                 return (
                   <li key={code} style={{background:'#0b0b0f',padding:'10px',borderRadius:8,display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                     <div style={{textAlign:'left'}}>
-                      <div style={{fontWeight:600,color:'#c7d9ff'}}>{(info.code || code) + ': ' + (info.name || '')}</div>
+                      <div style={{fontWeight:600,color:'#c7d9ff',fontSize:'0.875rem'}}>{(info.code || code) + ': ' + (info.name || '')}</div>
                     </div>
                     <div style={{textAlign:'right'}}>
                       {plannedFlag ? (
                         <div style={{color:'#f6d28a'}}>Planned • {plannedTerm}</div>
                       ) : (
-                        <div style={{color:'#ff9aa2'}}>Unplanned</div>
+                        <div style={{color:'#ff9aa2'}}></div>
                       )}
                     </div>
                   </li>
