@@ -1,8 +1,7 @@
-import os
 from pathlib import Path
-from openai import OpenAI
-MODEL = os.getenv("MODEL_NAME", "gpt-4o-mini")
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+from .llm import client, MODEL
+
 PROMPT_PATH = Path(__file__).resolve().parent.parent / "prompts" / "override_prompt.txt"
 BASE_PROMPT = PROMPT_PATH.read_text(encoding="utf-8") if PROMPT_PATH.exists() else "System: Draft a concise, professional override/waiver email (120-180 words)."
 def draft_override(student, course, term, reason, evidence, dept_contact="Advisor Team"):
