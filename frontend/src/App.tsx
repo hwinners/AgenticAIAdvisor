@@ -70,7 +70,7 @@ export default function App() {
         Upload transcript &rarr; auto-audit &rarr; plan &rarr; schedule &rarr; explanations &rarr; search &rarr; chat
       </p>
 
-      <CourseSearch />
+
 
       
       <UploadTranscript onLoaded={handleLoaded} />
@@ -82,6 +82,7 @@ export default function App() {
       {planned && auditRes && transcript && (
         <>
           <OverrideDrafts planned_terms={planned} requirements={auditRes} />
+          <CourseSearch />
           <ChatPanel
             transcript={transcript}
             audit={auditRes}
