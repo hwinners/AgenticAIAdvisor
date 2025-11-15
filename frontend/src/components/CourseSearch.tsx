@@ -76,7 +76,7 @@ export default function CourseSearch() {
 
   return (
     <div className="card bg-gray-900 text-white p-6 rounded-lg shadow-lg mt-6">
-      <h3 className="text-2xl font-bold mb-4">🔍 Smart Course Search (Fuzzy)</h3>
+      <h3 className="text-2xl font-bold mb-4">🔍 Smart Course Search </h3>
 
       <form onSubmit={handleSearch} className="flex gap-3 mb-4">
         <input
