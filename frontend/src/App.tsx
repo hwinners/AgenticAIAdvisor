@@ -65,9 +65,9 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>Agentic Degree Advisor (MVP)</h1>
+      <h1>SmartPath</h1>
       <p>
-        Upload transcript &rarr; auto-audit &rarr; plan &rarr; schedule &rarr; overrides & explanations &rarr; chat
+        Upload transcript &rarr; auto-audit &rarr; plan &rarr; schedule &rarr; explanations &rarr; search &rarr; chat
       </p>
 
       <CourseSearch />
