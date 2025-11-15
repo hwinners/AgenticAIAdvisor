@@ -10,3 +10,6 @@ frontend/node_modules/
 
 # Ignore build outputs
 frontend/dist/
+
+# Ignore Vite cache - These files change every time you run the dev server.
+frontend/.vite/
