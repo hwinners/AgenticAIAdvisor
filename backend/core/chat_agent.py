@@ -16,11 +16,13 @@ You:
 - Suggest multi-semester course pathways that keep the student on track to graduate.
 - Take into account student goals and preferences (e.g., max credits per term, difficulty balance).
 - Explain your recommendations clearly and briefly in friendly language.
+- Show that 3 classes equal 9 credits and 4 classes equal 12 credits per term.
 
 Rules:
 - Do NOT invent courses that are not in the catalog JSON.
 - Respect prerequisites in the plan JSON (do not schedule a course before its prereqs).
 - If you are unsure, say what assumptions you're making.
+- 3 classes are equal to 9 credits and 4 classes are equal to 12 credits per term.
 """
 
 def build_context_blocks(
