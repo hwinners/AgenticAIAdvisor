@@ -1,162 +1,459 @@
-{
-  "program_name": "B.S. in Computer Science",
-  "total_credits": 120,
-  "min_residence_credits": 30,
 
-  "requirements": [
-    {
-      "id": "math_core",
-      "type": "all_of",
-      "courses": [
-        "MAC1105",
-        "MAD2104",
-        "COT2000C",
-        "MAC2210",
-        "MAC2311",
-        "MAC2312",
-        "MAS2103",
-        "STA4821",
-        "EEE4541"
-      ]
-    },
-
-    {
-      "id": "cs_core",
-      "type": "all_of",
-      "courses": [
-        "COP3035C",
-        "CEN3062C",
-        "CDA3203",
-        "COP3275C",
-        "CDA4102",
-        "COP3530C",
-        "COP4610",
-        "COP4020",
-        "COT4420",
-        "COT4400",
-        "COP3540",
-        "CNT4007",
-        "CEN4010",
-        "EGN4950C",
-        "EGN4952C"
-      ]
-    },
-
-    {
-      "id": "semi_core_group_1",
-      "type": "choose_n",
-      "n": 1,
-      "from": [
-        "CAP4613",
-        "CAP4630",
-        "CAP4770"
-      ]
-    },
-
-    {
-      "id": "semi_core_group_2",
-      "type": "choose_n",
-      "n": 1,
-      "from": [
-        "CIS4634",
-        "CNT4411",
-        "CNT4403"
-      ]
-    },
-
-    {
-      "id": "cs_electives",
-      "type": "choose_n",
-      "n": 6,
-      "from": [
-        "COP3813",
-        "COP3834",
-        "COP3014",
-        "COP2220",
-        "COP3410C",
-        "COP3062C"
-      ]
-    }
-  ],
-
-  "prereqs": {
-    "MAD2104": ["MAC1105"],
-    "MAC2210": ["MAC1105"],
-    "MAC2311": ["MAC2210"],
-    "MAC2312": ["MAC2311"],
-    "MAS2103": ["MAC2311"],
-    "STA4821": ["MAC2312"],
-    "EEE4541": ["MAC2312"],
-
-    "CAP4773": ["COP3035C", ["STA4821", "EEE4541"]],
-    "CEN3062C": ["COP3035C"],
-    "COP3275C": ["COP3035C", "CEN3062C"],
-    "CDA4102": ["CDA3203", "COP3275C"],
-    "COP3530C": ["COT2000C", "COP3275C"],
-    "COP4610": ["COP3035C", "CDA4102"],
-    "COP4020": ["COP3035C", "COT4420"],
-    "COT4420": ["COP3035C"],
-    "COT4400": ["COP3035C"],
-    "COP3540": ["COP3035C"],
-    "CNT4007": ["COP3035C"],
-    "EGN4950C": [["STA4821", "EEE4541"], "CEN4010"],
-    "EGN4952C": ["EGN4950C"],
-
-    "CAP4613": ["COP3530C"],
-    "CAP4630": ["COP3530C"],
-    "CAP4770": ["COP3530C", ["STA4821", "EEE4541"]],
-
-    "CIS4634": [["COT2000C", "MAD2104"]],
-    "CNT4411": ["COP3530C", "COT4400"],
-    "CNT4403": [["CNT4007", "COP3813", "COP3834"]],
-
-    "COP3813": ["COP3014"],
-    "COP3834": ["CEN3062C"],
-    "COP3014": ["COP2220"],
-    "COP3410C": [["COT2000C", "MAD2104"], ["CEN3062C", "COP3035C"]],
-    "COP3062C": ["COP3035C"]
+[
+  {
+    "Key":"Course Code",
+    "Don't know what to put\/ not explicit in flowchart":"Course Name",
+    "Unnamed: 2":"Credits",
+    "Leave cell blank if no data there":"Prerequisites",
+    "use: AND OR ":"Corequisites",
+    "Unnamed: 5":"Type",
+    "Unnamed: 6":"Availability",
+    "Unnamed: 7":"Requirement Group",
+    "Unnamed: 8":"Category",
+    "Unnamed: 9":"Notes"
   },
-
-  "course_meta": {
-    "MAC1105": { "credits": 3, "area": "math" },
-    "MAD2104": { "credits": 3, "area": "math" },
-    "COT2000C": { "credits": 3, "area": "math" },
-    "MAC2210": { "credits": 3, "area": "math" },
-    "MAC2311": { "credits": 4, "area": "math" },
-    "MAC2312": { "credits": 4, "area": "math" },
-    "MAS2103": { "credits": 3, "area": "math" },
-    "STA4821": { "credits": 3, "area": "math" },
-    "EEE4541": { "credits": 3, "area": "math" },
-
-    "COP3035C": { "credits": 3, "area": "core" },
-    "CEN3062C": { "credits": 3, "area": "core" },
-    "CDA3203": { "credits": 3, "area": "core" },
-    "COP3275C": { "credits": 3, "area": "core" },
-    "CDA4102": { "credits": 3, "area": "core" },
-    "COP3530C": { "credits": 3, "area": "core" },
-    "COP4610": { "credits": 3, "area": "core" },
-    "COP4020": { "credits": 3, "area": "core" },
-    "COT4420": { "credits": 3, "area": "core" },
-    "COT4400": { "credits": 3, "area": "core" },
-    "COP3540": { "credits": 3, "area": "core" },
-    "CNT4007": { "credits": 3, "area": "core" },
-    "CEN4010": { "credits": 3, "area": "core" },
-    "EGN4950C": { "credits": 3, "area": "core" },
-    "EGN4952C": { "credits": 3, "area": "core" },
-
-    "CAP4613": { "credits": 3, "area": "semicore" },
-    "CAP4630": { "credits": 3, "area": "semicore" },
-    "CAP4770": { "credits": 3, "area": "semicore" },
-
-    "CIS4634": { "credits": 3, "area": "semicore" },
-    "CNT4411": { "credits": 3, "area": "semicore" },
-    "CNT4403": { "credits": 3, "area": "semicore" },
-
-    "COP3813": { "credits": 3, "area": "elective" },
-    "COP3834": { "credits": 3, "area": "elective" },
-    "COP3014": { "credits": 3, "area": "elective" },
-    "COP2220": { "credits": 3, "area": "elective" },
-    "COP3410C": { "credits": 3, "area": "elective" },
-    "COP3062C": { "credits": 3, "area": "elective" }
+  {
+    "Key":"MAC 1105",
+    "Don't know what to put\/ not explicit in flowchart":"College Algebra",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":null,
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"MAD 2104",
+    "Don't know what to put\/ not explicit in flowchart":"Discrete Mathematics",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"MAC 1105",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"COT 2000C",
+    "Don't know what to put\/ not explicit in flowchart":"Foundations of Computing",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":null,
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Theory\/Algorithms",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"MAC 2210",
+    "Don't know what to put\/ not explicit in flowchart":"Introduction to Calculus with Applications",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"MAC 1105",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"MAC 2311",
+    "Don't know what to put\/ not explicit in flowchart":"Calc w\/Analytic Geometry I",
+    "Unnamed: 2":"4",
+    "Leave cell blank if no data there":"MAC 2210",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"MAC 2312",
+    "Don't know what to put\/ not explicit in flowchart":"Calc w\/Analytic Geometry II",
+    "Unnamed: 2":"4",
+    "Leave cell blank if no data there":"MAC 2311",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"MAS 2103",
+    "Don't know what to put\/ not explicit in flowchart":"Matrix Theory",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"MAC 2311",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"STA 4821",
+    "Don't know what to put\/ not explicit in flowchart":"Stochastic Models (Statistics)",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"MAC 2312",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Statistics",
+    "Unnamed: 9":"Substitutable with EEE 4541"
+  },
+  {
+    "Key":"EEE 4541",
+    "Don't know what to put\/ not explicit in flowchart":"Stochastic Models (Electrical)",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"MAC 2312",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Electrical",
+    "Unnamed: 9":"Substitutable with STA 4821"
+  },
+  {
+    "Key":"CAP 4773",
+    "Don't know what to put\/ not explicit in flowchart":"Intro to Data Science & Analytics",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"(STA 4821 OR EEE 4541) AND COP3035C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Data Science",
+    "Unnamed: 9":"Requires one Stochastic Models course and COP3035C"
+  },
+  {
+    "Key":"COP 3035C",
+    "Don't know what to put\/ not explicit in flowchart":"Intro to Programming in Python",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":null,
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"CEN 3062C",
+    "Don't know what to put\/ not explicit in flowchart":"Intro to Software Design",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Software",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"CDA 3203",
+    "Don't know what to put\/ not explicit in flowchart":"Computer Logic Design",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":null,
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Architecture",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"COP 3275C",
+    "Don't know what to put\/ not explicit in flowchart":"Systems Programming with C++",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C",
+    "use: AND OR ":"CEN 3062C",
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"CDA 4102",
+    "Don't know what to put\/ not explicit in flowchart":"Computer Architecture",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"CDA 3203 AND COP 3275C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Architecture",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"COP 3530C",
+    "Don't know what to put\/ not explicit in flowchart":"Data Structures & Algorithm Analysis",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COT 2000C AND COP 3275C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"COP 4610",
+    "Don't know what to put\/ not explicit in flowchart":"Computer Operating Systems",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C AND CDA 4102",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"COP 4020",
+    "Don't know what to put\/ not explicit in flowchart":"Principles of Programming Languages",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C AND COT 4420",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"COT 4420",
+    "Don't know what to put\/ not explicit in flowchart":"Theory of Computation",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Theory\/Algorithms",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"COT 4400",
+    "Don't know what to put\/ not explicit in flowchart":"Design & Analysis of Algorithms",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Theory\/Algorithms",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"COP 3540",
+    "Don't know what to put\/ not explicit in flowchart":"Introduction to Database Structures",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"CNT 4007",
+    "Don't know what to put\/ not explicit in flowchart":"Communication Networks",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Cybersecurity",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"CEN 4010",
+    "Don't know what to put\/ not explicit in flowchart":"Principles of Software Engineering",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":null,
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Software",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"EGN 4950C",
+    "Don't know what to put\/ not explicit in flowchart":"Engineering Design I",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"STA 4821 OR EEE 4541",
+    "use: AND OR ":"CEN 4010",
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"EGN 4952C",
+    "Don't know what to put\/ not explicit in flowchart":"Engineering Design II",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"EGN 4950C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":null
+  },
+  {
+    "Key":"CAP 4613",
+    "Don't know what to put\/ not explicit in flowchart":"Intro to Deep Learning",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3530C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Semi-Core",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":"Group 1",
+    "Unnamed: 8":"Data Science",
+    "Unnamed: 9":"Choose 1 from Group 1"
+  },
+  {
+    "Key":"CAP 4630",
+    "Don't know what to put\/ not explicit in flowchart":"Intro to Aritificial Intelligence",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3530C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Semi-Core",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":"Group 1",
+    "Unnamed: 8":"Data Science",
+    "Unnamed: 9":"Choose 1 from Group 1"
+  },
+  {
+    "Key":"CAP 4770",
+    "Don't know what to put\/ not explicit in flowchart":"Intro to Data Mining & Machine Language",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3530C AND (STA 4821 OR EEE 4541)",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Semi-Core",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":"Group 1",
+    "Unnamed: 8":"Data Science",
+    "Unnamed: 9":"Choose 1 from Group 1"
+  },
+  {
+    "Key":"CIS 4634",
+    "Don't know what to put\/ not explicit in flowchart":"Applied Cryptography & Security",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COT 2000 OR MAD 2104",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Semi-Core",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":"Group 2",
+    "Unnamed: 8":"Cryptography",
+    "Unnamed: 9":"Choose 1 from Group 2"
+  },
+  {
+    "Key":"CNT 4411",
+    "Don't know what to put\/ not explicit in flowchart":"Network & Data Security",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3530C AND COT 4400",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Semi-Core",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":"Group 2",
+    "Unnamed: 8":"Cybersecurity",
+    "Unnamed: 9":"Choose 1 from Group 2"
+  },
+  {
+    "Key":"CNT 4403",
+    "Don't know what to put\/ not explicit in flowchart":"Foundations of Cybersecurity",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"CNT 4007 OR COP 3813 OR COP 3834",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Semi-Core",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":"Group 2",
+    "Unnamed: 8":"Cybersecurity",
+    "Unnamed: 9":"Choose 1 from Group 2"
+  },
+  {
+    "Key":"COP 3813",
+    "Don't know what to put\/ not explicit in flowchart":"Introuduction to Internet Computing",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3014",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Elective",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":"Choose 6 from Electives"
+  },
+  {
+    "Key":"COP 3834",
+    "Don't know what to put\/ not explicit in flowchart":"Introduction to Web Programming",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"CEN 3062C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Elective",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":"Choose 6 from Electives"
+  },
+  {
+    "Key":"COP 3014",
+    "Don't know what to put\/ not explicit in flowchart":"Foundations of Computer Science",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 2220",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Elective",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":"Choose 6 from Electives"
+  },
+  {
+    "Key":"COP 2220",
+    "Don't know what to put\/ not explicit in flowchart":"Introduction to Programming in C",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":null,
+    "use: AND OR ":null,
+    "Unnamed: 5":"Elective",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":"Choose 6 from Electives"
+  },
+  {
+    "Key":"COP 3410C",
+    "Don't know what to put\/ not explicit in flowchart":"Data Structures and Algorithm Analysis with Python",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"(COT 2000C OR MAD 2104) AND (CEN 3062C OR COP 3035C)",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Elective",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":"Choose 6 from Electives"
+  },
+  {
+    "Key":"COP 3062C",
+    "Don't know what to put\/ not explicit in flowchart":"Introduction to Software Design",
+    "Unnamed: 2":"3",
+    "Leave cell blank if no data there":"COP 3035C",
+    "use: AND OR ":null,
+    "Unnamed: 5":"Elective",
+    "Unnamed: 6":"All terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":"Choose 6 from Electives"
   }
-}
+]

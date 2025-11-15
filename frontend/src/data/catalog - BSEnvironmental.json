@@ -1,193 +1,567 @@
-{
-  "program_name": "B.S. in Environmental Engineering",
-  "total_credits": 120,
-  "min_residence_credits": 30,
 
-  "requirements": [
-    {
-      "id": "math_sequence",
-      "type": "all_of",
-      "courses": ["MAC2311", "MAC2312", "MAP3305"]
-    },
-
-    {
-      "id": "stats_restrictive",
-      "type": "choose_n",
-      "n": 1,
-      "from": ["STA4032", "STA4821", "STA4442"]
-    },
-
-    {
-      "id": "gis_requirement",
-      "type": "choose_n",
-      "n": 1,
-      "from": ["GIS3015C", "CGN4321"]
-    },
-
-    {
-      "id": "science_sequence",
-      "type": "all_of",
-      "courses": [
-        "PHY2048",
-        "PHY2048L",
-        "CHM2045",
-        "CHM2045L",
-        "ENV3001C"
-      ]
-    },
-
-    {
-      "id": "core_engineering",
-      "type": "all_of",
-      "courses": [
-        "EGN1002",
-        "EGN3343",
-        "EGN3311",
-        "EGN3331",
-        "CEG3011C",
-        "SUR4463",
-        "ENV4072",
-        "ENV4053",
-        "ENV4341",
-        "CWR3201C",
-        "CWR4202",
-        "ENV4514",
-        "CGN4803C",
-        "CGN4804C",
-        "ENV4112",
-        "ENV4112L"
-      ]
-    },
-
-    {
-      "id": "programming_restrictive",
-      "type": "choose_n",
-      "n": 1,
-      "from": ["EGN2213", "EEL2161", "COP3035C"]
-    },
-
-    {
-      "id": "environmental_technical_electives",
-      "type": "choose_n",
-      "n": 3,
-      "from": [
-        "ANT4463",
-        "CCE4031",
-        "CWR4223",
-        "CWR4307",
-        "ECP4302",
-        "EGN4613",
-        "ENT4024",
-        "GLY4241",
-        "GLY4822",
-        "INR4350"
-      ]
-    }
-  ],
-
-  "prereqs": {
-    "MAC2312": ["MAC2311"],
-    "MAP3305": ["MAC2312"],
-    "MAP2302": ["MAC2312"],
-
-    "PHY2048": ["MAC2311"],
-    "PHY2048L": ["MAC2311", "PHY2048"],
-
-    "CHM2045L": ["CHM2045"],
-    "ENV3001C": ["CHM2045", "CHM2045L"],
-
-    "ENV4072": ["PHY2048", "PHY2048L"],
-    "EGN3343": ["MAC2312", "PHY2048", "PHY2048L"],
-    "EGN3311": ["MAC2312", "PHY2048", "PHY2048L"],
-
-    "EGN3331": ["EGN3311"],
-    "CEG3011C": ["EGN3331"],
-
-    "CWR3201C": [["MAP3305", "MAP2302"], "EGN3311"],
-    "CWR4202": ["CWR3201C"],
-    "ENV4514": ["CWR3201C"],
-
-    "CGN4803C": ["ENV4514", "SUR4463"],
-    "CGN4804C": ["CGN4803C"],
-
-    "ENV4112": ["ENV3001C", "CWR3201C"],
-    "ENV4112L": ["ENV3001C", "CWR3201C", "ENV4112"],
-
-    "SUR4463": ["CGN2327"],
-
-    "CGN4321": [],
-    "GIS3015C": [],
-
-    "EGN2213": ["MAC2312"],
-    "COP3035C": [],
-    "EEL2161": [],
-
-    "STA4032": ["MAC2312"],
-    "STA4821": ["MAC2312"],
-    "STA4442": [],
-
-    "ANT4463": [],
-    "CCE4031": ["SeniorStanding"],
-    "CWR4223": ["CWR3201C"],
-    "CWR4307": ["CWR3201C"],
-    "ECP4302": [["ECO2023", "ECO3003"]],
-    "EGN4613": ["EGN3331"],
-    "ENT4024": ["JuniorStanding"],
-    "GLY4241": ["CHM2045"],
-    "GLY4822": ["GLY2010C", "MAC2311", "CHM2045"],
-    "INR4350": []
+[
+  {
+    "Unnamed: 0":"Course Code",
+    "Unnamed: 1":"Course Name",
+    "Unnamed: 2":"Credits",
+    "Unnamed: 3":"Prerequisites",
+    "Unnamed: 4":"Corequisites",
+    "Unnamed: 5":"Type",
+    "Unnamed: 6":"Availability",
+    "Unnamed: 7":"Requirement Group",
+    "Unnamed: 8":"Category",
+    "Unnamed: 9":"Notes"
   },
-
-  "course_meta": {
-
-    "MAC2311": {"credits": 4, "area": "math"},
-    "MAC2312": {"credits": 4, "area": "math"},
-    "MAP3305": {"credits": 3, "area": "math"},
-    "MAP2302": {"credits": 3, "area": "math"},
-
-    "PHY2048": {"credits": 3, "area": "science"},
-    "PHY2048L": {"credits": 1, "area": "science"},
-    "CHM2045": {"credits": 3, "area": "science"},
-    "CHM2045L": {"credits": 1, "area": "science"},
-    "ENV3001C": {"credits": 3, "area": "core"},
-
-    "GIS3015C": {"credits": 3, "area": "core"},
-    "CGN4321": {"credits": 3, "area": "core"},
-
-    "EGN1002": {"credits": 3, "area": "core"},
-    "EGN3343": {"credits": 3, "area": "core"},
-    "EGN3311": {"credits": 3, "area": "core"},
-    "EGN3331": {"credits": 3, "area": "core"},
-    "CEG3011C": {"credits": 3, "area": "core"},
-    "SUR4463": {"credits": 3, "area": "core"},
-    "ENV4072": {"credits": 3, "area": "core"},
-    "ENV4053": {"credits": 3, "area": "core"},
-    "ENV4341": {"credits": 3, "area": "core"},
-    "CWR3201C": {"credits": 3, "area": "core"},
-    "CWR4202": {"credits": 3, "area": "core"},
-    "ENV4514": {"credits": 3, "area": "core"},
-    "CGN4803C": {"credits": 3, "area": "core"},
-    "CGN4804C": {"credits": 3, "area": "core"},
-    "ENV4112": {"credits": 3, "area": "core"},
-    "ENV4112L": {"credits": 1, "area": "core"},
-
-    "EGN2213": {"credits": 3, "area": "elective"},
-    "EEL2161": {"credits": 3, "area": "elective"},
-    "COP3035C": {"credits": 3, "area": "elective"},
-
-    "STA4032": {"credits": 3, "area": "math"},
-    "STA4821": {"credits": 3, "area": "math"},
-    "STA4442": {"credits": 3, "area": "math"},
-
-    "ANT4463": {"credits": 3, "area": "technical_elective"},
-    "CCE4031": {"credits": 3, "area": "technical_elective"},
-    "CWR4223": {"credits": 3, "area": "technical_elective"},
-    "CWR4307": {"credits": 3, "area": "technical_elective"},
-    "ECP4302": {"credits": 3, "area": "technical_elective"},
-    "EGN4613": {"credits": 3, "area": "technical_elective"},
-    "ENT4024": {"credits": 3, "area": "technical_elective"},
-    "GLY4241": {"credits": 3, "area": "technical_elective"},
-    "GLY4822": {"credits": 3, "area": "technical_elective"},
-    "INR4350": {"credits": 3, "area": "technical_elective"}
+  {
+    "Unnamed: 0":"MAC 2311",
+    "Unnamed: 1":"Calc w\/Analytic Geometry 1",
+    "Unnamed: 2":"4",
+    "Unnamed: 3":"MAC 2210",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"MAC 2312",
+    "Unnamed: 1":"Calc w\/Analytic Geometry 2",
+    "Unnamed: 2":"4",
+    "Unnamed: 3":"MAC 2311",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"MAP 3305",
+    "Unnamed: 1":"Engineering Math I",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"MAC 2312",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":"Substitutable with MAP 2302"
+  },
+  {
+    "Unnamed: 0":"MAP 2302",
+    "Unnamed: 1":"Differential Equat. 1",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"MAC 2312",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Math",
+    "Unnamed: 9":"Substitutable with MAP 3305"
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":"Statistics Restricted Elective",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"MAC 2312",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Math",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":null,
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"EGN 1002",
+    "Unnamed: 1":"Fundamentals of Engineering",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"GIS 3015C",
+    "Unnamed: 1":"Intro to Mapping",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Geographic",
+    "Unnamed: 9":"Substitutable with CGN 4321"
+  },
+  {
+    "Unnamed: 0":"CGN 4321",
+    "Unnamed: 1":"GIS for Civil Engineering Applications",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Career-Grade Networks",
+    "Unnamed: 9":"Substitutable with GIS 3015C"
+  },
+  {
+    "Unnamed: 0":"PHY 2048",
+    "Unnamed: 1":"General Physics I",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"MAC 2311",
+    "Unnamed: 4":"PHY 2048L",
+    "Unnamed: 5":"Science",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Physics",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"PHY 2048L",
+    "Unnamed: 1":"General Physics I Lab",
+    "Unnamed: 2":"1",
+    "Unnamed: 3":"MAC2311",
+    "Unnamed: 4":"PHY 2048",
+    "Unnamed: 5":"Science",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Physics",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"CGN 2327",
+    "Unnamed: 1":"Comp-Aided Design",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Career-Grade Networks",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"SUR 4463",
+    "Unnamed: 1":"Subdivision Design",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CGN 2327",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Summer AND Fall",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Geomatics",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"ENV 4072",
+    "Unnamed: 1":"Intro to Pollution Prevention and Sustainability",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"PHY 2048 AND PHY 2048L",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"EGN 3343",
+    "Unnamed: 1":"Thermodynamics",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"MAC 2312 AND PHY 2048 AND PHY 2048L",
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"EGN 3311",
+    "Unnamed: 1":"Statistics",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"MAC 2312 AND PHY 2048 AND PHY 2048L",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"EGN 2213",
+    "Unnamed: 1":"Computer Apps in Engineering",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":"MAC 2312",
+    "Unnamed: 5":"Computer Programming Elective",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":"Choose 1 from Computer Programming Elective Options"
+  },
+  {
+    "Unnamed: 0":"EEL 2161",
+    "Unnamed: 1":"C for Engineers",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Computer Programming Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":"Choose 1 from Computer Programming Elective Options"
+  },
+  {
+    "Unnamed: 0":"COP 3035C",
+    "Unnamed: 1":"Intro to Programming in Python",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Computer Programming Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Programming",
+    "Unnamed: 9":"Choose 1 from Computer Programming Elective Options"
+  },
+  {
+    "Unnamed: 0":"EGN 3331",
+    "Unnamed: 1":"Strength Materials",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"EGN 3311",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"CEG 3011C",
+    "Unnamed: 1":"Soil Mechanics",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"EGN 3331",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"CHM 2045",
+    "Unnamed: 1":"Chemistry 1",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":"CHM 2045L",
+    "Unnamed: 5":"Science",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Chemistry",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"CHM 2045L",
+    "Unnamed: 1":"Chemistry 1 Lab",
+    "Unnamed: 2":"1",
+    "Unnamed: 3":null,
+    "Unnamed: 4":"CHM 2045",
+    "Unnamed: 5":"Science",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Chemistry",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"ENV 3001C",
+    "Unnamed: 1":"Environmental Science & Engineering",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CHM 2045 AND CHM 2045L",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Spring AND Summer",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"CHM 2046",
+    "Unnamed: 1":"Chemistry 2",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CHM 2045 AND CHM 2045L",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Science",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Chemistry",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"ENV 4053",
+    "Unnamed: 1":"Environmental Fate and Transport",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CHM 2046 AND ENV 3001C ",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":"Available on alternating falls (odd years, e.g., 2025, 2027, 2029, 2031)"
+  },
+  {
+    "Unnamed: 0":"ENV 4341",
+    "Unnamed: 1":"Solid & Hazarduous Waste & Site Remediation",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"ENV 3001C",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":"Available on alternating falls (even years, e.g., 2026, 2028, 2030, 2032)"
+  },
+  {
+    "Unnamed: 0":"CWR 3201C",
+    "Unnamed: 1":"Applied Hydraulics",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"(MAP 3305 OR MAP 2302) AND EGN 3311",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Summer",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Hydraulics",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"CWR 4202",
+    "Unnamed: 1":"Hydrologic Engineering",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CWR 3201C",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Hydraulics",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"ENV 4514",
+    "Unnamed: 1":"Water & Wastewater",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CWR 3201C",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Summer AND Fall",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"CGN 4803C",
+    "Unnamed: 1":"CEGE Design 1",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"ENV 4514 AND SUR 4463",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Career-Grade Networks",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"CGN 4804C",
+    "Unnamed: 1":"CEGE Design 2",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CGN 4804C",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Fall AND Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Career-Grade Networks",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"ENV 4112",
+    "Unnamed: 1":"Air Poll and Control Systm",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"ENV 3001C AND CWR 3201C",
+    "Unnamed: 4":"ENV 4112L",
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"ENV 4112L",
+    "Unnamed: 1":"Air Pollution Lab",
+    "Unnamed: 2":"1",
+    "Unnamed: 3":"ENV 3001C AND CWR 3201C",
+    "Unnamed: 4":"ENV 4112",
+    "Unnamed: 5":"Core",
+    "Unnamed: 6":"Spring",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":null
+  },
+  {
+    "Unnamed: 0":"STA 4032",
+    "Unnamed: 1":"Probability and Statistics for Engineers",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Statistics Restricted Elective",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Statistics",
+    "Unnamed: 9":"Choose 1 from Statistic Restricted Elevtive Options"
+  },
+  {
+    "Unnamed: 0":"STA 4821",
+    "Unnamed: 1":"Stochastic Models for Comp Sci",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Statistics Restricted Elective",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Statistics",
+    "Unnamed: 9":"Choose 1 from Statistic Restricted Elevtive Options"
+  },
+  {
+    "Unnamed: 0":"STA 4442",
+    "Unnamed: 1":"Probability and Statistics 1",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Statistics Restricted Elective",
+    "Unnamed: 6":"All Terms",
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Statistics",
+    "Unnamed: 9":"Choose 1 from Statistic Restricted Elevtive Options"
+  },
+  {
+    "Unnamed: 0":"ANT 4463",
+    "Unnamed: 1":"Environment and Disease",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"CCE 4031",
+    "Unnamed: 1":"Construction Project Mgmt",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"Senior Standing",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Construction",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"CWR 4223",
+    "Unnamed: 1":"Advanced Hydraulic Systems",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CWR 3201C",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Hydraulics",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"CWR 4307",
+    "Unnamed: 1":"Stormwater Modeling Mgmt",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CWR 3201C",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Hydraulics",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"ECP 4302",
+    "Unnamed: 1":"Environmental Economics",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"ECO 2023 OR ECO 3003",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"EGN 4613",
+    "Unnamed: 1":"Engineering Economics",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"EGN 3331",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Engineering",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"ENT 4024",
+    "Unnamed: 1":"Entrepreneurship",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"Junior Standing",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enterprenurship",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"GLY 4241",
+    "Unnamed: 1":"Environmental Geochemistry",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"CHM 2045",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Geochemistry",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"GLY 4822",
+    "Unnamed: 1":"Hydreology",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":"GLY 2010C AND MAC 2311 AND CHM 2045",
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Geochemistry",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
+  },
+  {
+    "Unnamed: 0":"INR 4350",
+    "Unnamed: 1":"Global Environmental Politics and Policies",
+    "Unnamed: 2":"3",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Environmental Engineering Technical Elective",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null,
+    "Unnamed: 8":"Enviromental",
+    "Unnamed: 9":"Choose 3 from Environmental Engineering Technical Electives"
   }
-}
+]

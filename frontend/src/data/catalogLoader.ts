@@ -6,8 +6,8 @@ export const loadCatalog = async (major: string) => {
       return await import("./catalog - BSDataScience&A.json");
     case "BAComputerScience":
       return await import("./catalog - BAComputerScience.json");
-    // case "BSMechanical":
-    //   return await import("./catalog - BSMechanical.json");
+    case "BSMechanical":
+      return await import("./catalog-BSMechanical.json");
     case "BSCivil":
       return await import("./catalog - BSCivil.json");
     // add the rest…
