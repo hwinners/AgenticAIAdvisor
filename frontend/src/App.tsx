@@ -5,6 +5,7 @@ import PlanView from './components/PlanView';
 import ScheduleView from './components/ScheduleView';
 import OverrideDrafts from './components/OverrideDrafts';
 import ChatPanel from './components/ChatPanel';
+import CourseSearch from './components/CourseSearch';
 import { audit, plan, schedule } from './api';
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
       <h1>Agentic Degree Advisor (MVP)</h1>
       <p>Upload transcript → auto-audit → plan → schedule → overrides & explanations → chat</p>
 
+      <CourseSearch />
       <UploadTranscript onLoaded={handleLoaded} />
       {auditRes && <AuditView audit={auditRes} />}
       {planned && <PlanView planned_terms={planned} />}
