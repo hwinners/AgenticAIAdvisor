@@ -15,10 +15,14 @@ export default function App() {
   const [chosen, setChosen] = useState<any[] | null>(null);
   const [needs, setNeeds] = useState<any[] | null>(null);
   const [selectedMajor, setSelectedMajor] = useState<string>('BSComputerScience');
+  const [scheduleTerm, setScheduleTerm] = useState<string | null>(null);
   const program_id = 'BSCSE';
 
   async function handleLoaded(t: any, extra?: any) {
     setTranscript(t);
+    setChosen(null);
+    setNeeds(null);
+    setScheduleTerm(null);
     // Infer major from transcript.student.program when available
     try {
       const programCode = t?.student?.program;
@@ -46,6 +50,7 @@ export default function App() {
       const s = await schedule(extra.planned_terms);
       setChosen(s.chosen_sections);
       setNeeds(s.needs_overrides);
+      setScheduleTerm(s.term || null);
       return;
     }
     const a = await audit(t, program_id);
@@ -55,12 +60,15 @@ export default function App() {
     const s = await schedule(p.planned_terms);
     setChosen(s.chosen_sections);
     setNeeds(s.needs_overrides);
+    setScheduleTerm(s.term || null);
   }
 
   return (
     <div className="container">
       <h1>Agentic Degree Advisor (MVP)</h1>
-      <p>Upload transcript → auto-audit → plan → schedule → overrides & explanations → chat</p>
+      <p>
+        Upload transcript &rarr; auto-audit &rarr; plan &rarr; schedule &rarr; overrides & explanations &rarr; chat
+      </p>
 
       <CourseSearch />
 
@@ -70,14 +78,10 @@ export default function App() {
       {planned && (
         <PlanView planned_terms={planned} transcript={transcript} selectedMajor={selectedMajor} />
       )}
-      {chosen && <ScheduleView chosen={chosen} needs={needs || []} />}
+      {chosen && <ScheduleView term={scheduleTerm} chosen={chosen} needs={needs || []} />}
       {planned && auditRes && transcript && (
         <>
-          <OverrideDrafts
-            student={transcript.student}
-            planned_terms={planned}
-            requirements={auditRes}
-          />
+          <OverrideDrafts planned_terms={planned} requirements={auditRes} />
           <ChatPanel
             transcript={transcript}
             audit={auditRes}
