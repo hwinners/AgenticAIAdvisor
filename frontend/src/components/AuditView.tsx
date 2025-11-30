@@ -17,8 +17,6 @@ type Props = {
 type NewProps = Props & { transcript?: any | null };
 
 // --- HELPER: Normalize codes to fix matches ---
-// Removes spaces and ensures standard formatting. e.g. "COP 2220" -> "COP2220"
-// This fixes the issue where "Gray" courses were actually taken but had a space mismatch.
 const normalizeCode = (code: string) => code.replace(/\s+/g, "").toUpperCase();
 
 export default function AuditView({ audit, selectedMajor = "BSComputerScience", transcript = null }: NewProps) {
@@ -178,14 +176,53 @@ export default function AuditView({ audit, selectedMajor = "BSComputerScience", 
   );
 }
 
-function CategoryBlock({ category, courses, takenSet, inProgressSet, completedSet, missingSet }: { category: string, courses: any[], takenSet: Set<string>, inProgressSet: Set<string>, completedSet: Set<string>, missingSet: Set<string> }) {
+function CategoryBlock({
+  category,
+  courses,
+  takenSet,
+  inProgressSet,
+  completedSet,
+  missingSet,
+}: {
+  category: string;
+  courses: any[];
+  takenSet: Set<string>;
+  inProgressSet: Set<string>;
+  completedSet: Set<string>;
+  missingSet: Set<string>;
+}) {
+  // Use backend requirements mapping for correct description
+  const reqMap: Record<string, string> = {
+    Mathematics: "Take all classes",
+    "Computer Science Core": "Take all classes",
+    "Semi-Core Group 1 (Data Science/AI)": "Choose 1 class",
+    "Semi-Core Group 2 (Security)": "Choose 1 class",
+    "CS Electives": "Choose 5 classes",
+  };
+  const reqText = reqMap[category] || "";
+
   return (
-    <div key={category} className="mb-6">
+    <div className="mb-6">
       <h5 className="text-sm font-bold text-blue-300 mb-2 border-b border-blue-500 pb-1">
         {category}
+        {reqText && (
+          <span className="text-sm font-bold text-blue-300 ml-2">
+             {" ("}{reqText}{")"}
+          </span>
+        )}
       </h5>
 
-      <ul style={{display:'grid',gridTemplateColumns:'repeat(2, minmax(0,1fr))',gap:8,listStyle:'none',padding:0,margin:0, fontSize: '0.75rem'}}> 
+      <ul
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(2, minmax(0,1fr))",
+          gap: 8,
+          listStyle: "none",
+          padding: 0,
+          margin: 0,
+          fontSize: "0.75rem",
+        }}
+      >
         {courses.map((course) => {
           // Normalize the catalog code before checking
           const code = normalizeCode(course.code);
@@ -194,39 +231,52 @@ function CategoryBlock({ category, courses, takenSet, inProgressSet, completedSe
           const isCompleted = completedSet.has(code);
 
           // priority: missing (red) > in-progress (yellow) > completed (green) > default
-          let bg = '#374151';
-          let border = '#4b5563';
-          let color = '#e5e7eb';
+          let bg = "#374151";
+          let border = "#4b5563";
+          let color = "#e5e7eb";
 
           if (isMissing) {
-            bg = '#3f0f0f'; // dark red
-            border = '#991b1b';
-            color = '#fee2e2';
+            bg = "#3f0f0f"; // dark red
+            border = "#991b1b";
+            color = "#fee2e2";
           } else if (isInProgress) {
             // in-progress should always be yellow, even if also completed
-            bg = '#4d3b00'; // dark yellow
-            border = '#b45309';
-            color = '#fef3c7';
+            bg = "#4d3b00"; // dark yellow
+            border = "#b45309";
+            color = "#fef3c7";
           } else if (isCompleted) {
-            bg = '#064e3b';
-            border = '#047857';
-            color = '#d1fae5';
+            bg = "#064e3b";
+            border = "#047857";
+            color = "#d1fae5";
           }
 
           const itemStyle = {
-              background: bg,
-              border: `1px solid ${border}`,
-              color: color, 
-              padding: '8px',
-              borderRadius: '6px',
-              minHeight: '40px' 
+            background: bg,
+            border: `1px solid ${border}`,
+            color: color,
+            padding: "8px",
+            borderRadius: "6px",
+            minHeight: "40px",
           };
 
           return (
             <li key={course.code} style={itemStyle}>
-              <div style={{fontWeight: 600, display: 'inline'}}>{course.code}</div>
-              {course.credits && <div style={{color: '#9ca3af', display: 'inline', marginLeft: '5px'}}> ({course.credits}cr)</div>}
-              <div style={{color: '#d1d5db'}}>{course.name}</div>
+              <div style={{ fontWeight: 600, display: "inline" }}>
+                {course.code}
+              </div>
+              {course.credits && (
+                <div
+                  style={{
+                    color: "#9ca3af",
+                    display: "inline",
+                    marginLeft: "5px",
+                  }}
+                >
+                  {" "}
+                  ({course.credits}cr)
+                </div>
+              )}
+              <div style={{ color: "#d1d5db" }}>{course.name}</div>
             </li>
           );
         })}
@@ -234,6 +284,7 @@ function CategoryBlock({ category, courses, takenSet, inProgressSet, completedSe
     </div>
   );
 }
+
 
 function AuditRequirementView({ req }: { req: AuditRequirement }) {
   const statusColor = req.met ? "text-green-400" : "text-red-400";
