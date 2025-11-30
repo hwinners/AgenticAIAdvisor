@@ -6,8 +6,7 @@ import pytesseract
 COURSE_ROW_REGEX = re.compile(
     r"[\"']?(?P<term>\d{4})[\"']?"           # Term: 4 digits (e.g. 2205), optional quotes
     r".*?"                                   # Junk chars (commas, whitespace)
-    r"[\"']?(?P<code>[A-Z]{3}\s?\d{4})[\"']?" # Code: 3 letters + 4 digits (e.g. COP2220)
-    r".*?"                                   # Junk chars
+    r"[\"']?(?P<code>[A-Z]{3,4}\s*\d{3,4}(?:\s*[A-Za-z])?)[\"']?" # Code: Matches "EGN 4950 C", "COP2220", "CNT 4007"    r".*?"                                   # Junk chars
     r"[\"']?(?P<credits>\d+\.\d{2})[\"']?"   # Credits: e.g. 3.00
     r".*?"                                   # Junk chars
     r"[\"']?(?P<grade>[A-Z][\+\-]?)[\"']?"   # Grade: A, B+, etc.
