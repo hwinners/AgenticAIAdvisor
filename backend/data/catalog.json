@@ -1,146 +1,140 @@
 {
   "programs": {
-    "BSCSE": {
-      "total_credits": 120,
-      "min_residence_credits": 30,
+    "BS_CS": {
+      "name": "B.S. Computer Science",
       "requirements": [
         {
-          "id": "math_core",
+          "id": "Mathematics",
+          "label": "Mathematics (Calculus & Theory)",
           "type": "all_of",
           "courses": [
-            "MAC2311",
-            "MAC2312",
-            "MAP2302"
+            "MAC2311", 
+            "MAC2312", 
+            "MAS2103",
+            "COT2000", 
+            "STA4821"
           ]
         },
         {
-          "id": "cs_core",
-          "type": "all_of",
-          "courses": [
-            "COP3014",
-            "COP3530",
-            "CDA3103",
-            "CEN4020"
-          ]
-        },
-        {
-          "id": "tech_electives",
+          "id": "Science",
+          "label": "Science (Choose 2)",
           "type": "choose_n",
-          "n": 3,
+          "n": 2,
           "from": [
-            "CIS4301",
-            "CIS4360",
-            "CAP4612",
-            "CNT4007"
+            "PHY2048", "PHY2049", "CHM2045", "BSC1010", "GLY2010"
           ]
         },
         {
-          "id": "gen_ed",
-          "type": "credits_at_least",
-          "area": "gen_ed",
-          "credits": 36
+          "id": "CS_Core",
+          "label": "Computer Science Core",
+          "type": "all_of",
+          "courses": [
+            "COP2220", 
+            "COP3014", 
+            "CDA3203", 
+            "CDA4102", 
+            "COP3530", 
+            "CEN4010", 
+            "COP4610", 
+            "COT4400",
+            "COT4420",
+            "COP3540",
+            "CAP4773",
+            "EGN4950C",
+            "EGN4952"
+          ]
+        },
+        {
+          "id": "CS_Semi_Core_1",
+          "label": "Semi-Core Group 1 (Data Science/AI)",
+          "type": "choose_n",
+          "n": 1,
+          "from": [
+            "CAP4630", "CAP4770", "CAP4613"
+          ]
+        },
+        {
+          "id": "CS_Semi_Core_2",
+          "label": "Semi-Core Group 2 (Security)",
+          "type": "choose_n",
+          "n": 1,
+          "from": [
+             "CNT4403", "CIS4634", "CNT4411"
+          ]
+        },
+        {
+          "id": "CS_Electives",
+          "label": "CS Electives (Choose 5)",
+          "type": "choose_n",
+          "n": 5,
+          "from": [
+            "COP4020", "CNT4007", "COP3813", "COP4655", "CIS4360", "CEN4072", "MAP2302", "COP3834"
+          ]
         }
       ],
       "prereqs": {
-        "COP3530": [
-          "COP3014",
-          "MAC2311"
-        ],
-        "CDA3103": [
-          "COP3014"
-        ],
-        "CEN4020": [
-          "COP3530"
-        ],
-        "CIS4360": [
-          "COP3530"
-        ]
+        "MAC2312": ["MAC2311"],
+        "MAS2103": ["MAC2311"],
+        "STA4821": ["MAC2312"],
+        "PHY2048": ["MAC2311"],
+        "PHY2049": ["PHY2048", "MAC2312"],
+        "COP3014": ["COP2220"],
+        "COP3530": ["COP3014", "COT2000"],
+        "CDA3203": ["COP2220"],
+        "CDA4102": ["CDA3203"],
+        "CEN4010": ["COP3530"],
+        "COP4610": ["COP3530", "CDA3203"],
+        "COT4400": ["COP3530", "COT2000"],
+        "COT4420": ["COT4400"],
+        "CAP4773": ["STA4821"],
+        "COP3813": ["COP3014"],
+        "CNT4403": ["COP3813"],
+        "CNT4411": ["COP3530", "COT4400"],
+        "CIS4634": ["COT2000"],
+        "EGN4950C": ["CEN4010"],
+        "EGN4952": ["EGN4950C"],
+        "CIS4360": ["COP3530"],
+        "CEN4072": ["CEN4010"],
+        "MAP2302": ["MAC2312"]
       },
       "course_meta": {
-        "MAC2311": {
-          "credits": 4,
-          "area": "math"
-        },
-        "MAC2312": {
-          "credits": 4,
-          "area": "math"
-        },
-        "MAP2302": {
-          "credits": 3,
-          "area": "math"
-        },
-        "COP3014": {
-          "credits": 3,
-          "area": "cs"
-        },
-        "COP3530": {
-          "credits": 3,
-          "area": "cs"
-        },
-        "CDA3103": {
-          "credits": 3,
-          "area": "cs"
-        },
-        "CEN4020": {
-          "credits": 3,
-          "area": "cs"
-        },
-        "CIS4301": {
-          "credits": 3,
-          "area": "cs"
-        },
-        "CIS4360": {
-          "credits": 3,
-          "area": "cs"
-        },
-        "CAP4612": {
-          "credits": 3,
-          "area": "cs"
-        },
-        "CNT4007": {
-          "credits": 3,
-          "area": "cs"
-        },
-
-
-
-        
-        "AML2010": {
-          "credits": 3,
-          "area": "gen_ed"
-        },
-        "ENG1101": {
-          "credits": 3,
-          "area": "gen_ed"
-        },
-        "ENG2311": {
-          "credits": 3,
-          "area": "gen_ed"
-        },
-        "HUM2230": {
-          "credits": 3,
-          "area": "gen_ed"
-        },
-        "HUM3401": {
-          "credits": 3,
-          "area": "gen_ed"
-        },
-        "SCI1000": {
-          "credits": 4,
-          "area": "gen_ed"
-        },
-        "SCI2000": {
-          "credits": 4,
-          "area": "gen_ed"
-        },
-        "PSY2012": {
-          "credits": 3,
-          "area": "gen_ed"
-        },
-        "SOC1000": {
-          "credits": 3,
-          "area": "gen_ed"
-        }
+        "MAC2311": {"credits": 4, "name": "Calculus with Analytic Geometry 1"},
+        "MAC2312": {"credits": 4, "name": "Calculus with Analytic Geometry 2"},
+        "COT2000": {"credits": 3, "name": "Foundations of Computing"},
+        "STA4821": {"credits": 3, "name": "Stochastic Models for CS"},
+        "MAS2103": {"credits": 3, "name": "Matrix Theory"},
+        "PHY2048": {"credits": 4, "name": "General Physics for Engineers 1"},
+        "PHY2049": {"credits": 4, "name": "General Physics for Engineers 2"},
+        "CHM2045": {"credits": 3, "name": "General Chemistry 1"},
+        "BSC1010": {"credits": 3, "name": "Biological Principles"},
+        "GLY2010": {"credits": 3, "name": "Physical Geology"},
+        "COP2220": {"credits": 3, "name": "Intro to Programming in C"},
+        "COP3014": {"credits": 3, "name": "Foundations of Computer Science"},
+        "CDA3203": {"credits": 3, "name": "Computer Logic Design"},
+        "CDA4102": {"credits": 3, "name": "Computer Architecture"},
+        "COP3530": {"credits": 3, "name": "Data Structures & Algorithm Analysis"},
+        "CEN4010": {"credits": 3, "name": "Principles of Software Engineering"},
+        "COP4610": {"credits": 3, "name": "Computer Operating Systems"},
+        "COT4400": {"credits": 3, "name": "Design & Analysis of Algorithms"},
+        "CNT4007": {"credits": 3, "name": "Computer Network Projects"},
+        "COP3540": {"credits": 3, "name": "Intro to Database Structures"},
+        "COT4420": {"credits": 3, "name": "Theory of Computation"},
+        "EGN4950C": {"credits": 3, "name": "Engineering Design 1"},
+        "EGN4952": {"credits": 3, "name": "Engineering Design 2"},
+        "CAP4630": {"credits": 3, "name": "Intro to Artificial Intelligence"},
+        "CAP4773": {"credits": 3, "name": "Intro to Data Science & Analytics"},
+        "CNT4403": {"credits": 3, "name": "Foundations of Cybersecurity"},
+        "COP4020": {"credits": 3, "name": "Programming Languages"},
+        "CAP4770": {"credits": 3, "name": "Data Mining & Machine Learning"},
+        "CAP4613": {"credits": 3, "name": "Intro to Deep Learning"},
+        "COP4655": {"credits": 3, "name": "Mobile App Projects"},
+        "COP3813": {"credits": 3, "name": "Introduction to Internet Computing"},
+        "COP3834": {"credits": 3, "name": "Introduction to Web Programming"},
+        "CIS4634": {"credits": 3, "name": "Applied Cryptography & Security"},
+        "CNT4411": {"credits": 3, "name": "Network & Data Security"},
+        "CIS4360": {"credits": 3, "name": "Intro to Computer Security"},
+        "CEN4072": {"credits": 3, "name": "Software Testing & Quality Assurance"},
+        "MAP2302": {"credits": 3, "name": "Differential Equations 1"}
       }
     }
   }
