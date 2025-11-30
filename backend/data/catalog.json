@@ -60,7 +60,7 @@
           "type": "choose_n",
           "n": 5,
           "from": [
-            "COP4020", "CNT4007", "COP3813", "COP4655", "CIS4360", "CEN4072", "MAP2302", "COP3834"
+            "COP4020", "CNT4007", "COP3813", "COP4655", "CIS4360", "CEN4072", "COP3834"
           ]
         }
       ],
@@ -86,8 +86,7 @@
         "EGN4950C": ["CEN4010"],
         "EGN4952C": ["EGN4950C"],
         "CIS4360": ["COP3530"],
-        "CEN4072": ["CEN4010"],
-        "MAP2302": ["MAC2312"]
+        "CEN4072": ["CEN4010"]
       },
       "course_meta": {
         "MAC2311": {"credits": 4, "name": "Calculus with Analytic Geometry 1"},

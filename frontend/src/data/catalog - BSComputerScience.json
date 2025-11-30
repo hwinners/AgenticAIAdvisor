@@ -210,17 +210,17 @@
     "type": "Choose 5"
   },
   {
-    "code": "MAP2302",
-    "name": "Differential Equations 1",
-    "credits": 3,
-    "category": "CS Electives",
-    "type": "Choose 5"
-  },
-  {
     "code": "COP3834",
     "name": "Introduction to Web Programming",
     "credits": 3,
     "category": "CS Electives",
     "type": "Choose 5"
-  }
+  },
+  {
+    "code": "CAP4623",
+    "name": "Trustworthy AI",
+    "credits": 3,
+    "category": "CS Electives",
+    "type": "Choose 5"
+    }
 ]
