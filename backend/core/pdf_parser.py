@@ -126,3 +126,13 @@ def pdf_to_transcript(pdf_bytes: bytes) -> Dict:
         "taken": courses, 
         "transfer_credits": transfer
     }
+
+
+def extract_text_and_courses(pdf_bytes: bytes, dpi=200) -> Dict:
+    """Dev helper: return the extracted raw text and the parsed course rows.
+
+    Use this via a debug endpoint to inspect what the parser sees from a PDF.
+    """
+    text = _extract_text(pdf_bytes) if _has_text(pdf_bytes) else _extract_ocr(pdf_bytes, dpi=dpi)
+    courses = _parse_courses(text)
+    return {"text": text, "courses": courses}

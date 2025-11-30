@@ -2,6 +2,7 @@
   "programs": {
     "BS_CS": {
       "name": "B.S. Computer Science",
+      "total_credits": 120,
       "requirements": [
         {
           "id": "Mathematics",
@@ -32,7 +33,7 @@
             "COP3540",
             "CAP4773",
             "EGN4950C",
-            "EGN4952"
+            "EGN4952C"
           ]
         },
         {
@@ -83,7 +84,7 @@
         "CNT4411": ["COP3530", "COT4400"],
         "CIS4634": ["COT2000"],
         "EGN4950C": ["CEN4010"],
-        "EGN4952": ["EGN4950C"],
+        "EGN4952C": ["EGN4950C"],
         "CIS4360": ["COP3530"],
         "CEN4072": ["CEN4010"],
         "MAP2302": ["MAC2312"]
@@ -111,11 +112,10 @@
         "COP3540": {"credits": 3, "name": "Intro to Database Structures"},
         "COT4420": {"credits": 3, "name": "Theory of Computation"},
         "EGN4950C": {"credits": 3, "name": "Engineering Design 1"},
-        "EGN4952": {"credits": 3, "name": "Engineering Design 2"},
+        "EGN4952C": {"credits": 3, "name": "Engineering Design 2"},
         "CAP4630": {"credits": 3, "name": "Intro to Artificial Intelligence"},
         "CAP4773": {"credits": 3, "name": "Intro to Data Science & Analytics"},
         "CNT4403": {"credits": 3, "name": "Foundations of Cybersecurity"},
-        "COP4020": {"credits": 3, "name": "Programming Languages"},
         "CAP4770": {"credits": 3, "name": "Data Mining & Machine Learning"},
         "CAP4613": {"credits": 3, "name": "Intro to Deep Learning"},
         "COP4655": {"credits": 3, "name": "Mobile App Projects"},
@@ -125,7 +125,24 @@
         "CNT4411": {"credits": 3, "name": "Network & Data Security"},
         "CIS4360": {"credits": 3, "name": "Intro to Computer Security"},
         "CEN4072": {"credits": 3, "name": "Software Testing & Quality Assurance"},
-        "MAP2302": {"credits": 3, "name": "Differential Equations 1"}
+        "MAP2302": {"credits": 3, "name": "Differential Equations 1"},
+        "AMH2020": {"credits": 3, "area": "gen_ed", "name": "U.S. History from 1877"},
+        "EGN1002": {"credits": 3, "area": "gen_ed", "name": "Intro to Engineering"},
+        "ENC1101": {"credits": 3, "area": "gen_ed", "name": "Composition I"},
+        "MAC1105": {"credits": 3, "area": "gen_ed", "name": "College Algebra"},
+        "SLS1503": {"credits": 1, "area": "gen_ed", "name": "First Year Seminar"},
+        "SPC2608": {"credits": 3, "area": "gen_ed", "name": "Public Speaking"},
+        "CHM2045L": {"credits": 1, "area": "gen_ed", "name": "General Chemistry Lab 1"},
+        "ENC1102": {"credits": 3, "area": "gen_ed", "name": "Composition II"},
+        "MAC1147": {"credits": 5, "area": "gen_ed", "name": "Precalculus/Trigonometry"},
+        "PHI2600": {"credits": 3, "area": "gen_ed", "name": "Ethics"},
+        "THE2000": {"credits": 3, "area": "gen_ed", "name": "Theatre Appreciation"},
+        "PHY2048L": {"credits": 1, "area": "gen_ed", "name": "Physics Lab I"},
+        "SYG1000": {"credits": 3, "area": "gen_ed", "name": "General Sociology"},
+        "PHY2049L": {"credits": 1, "area": "gen_ed", "name": "Physics Lab II"},
+        "MAC2313": {"credits": 5, "area": "gen_ed", "name": "Calculus with Analytic Geometry III"},
+        "COP4020": {"credits": 3, "name": "Principles of Programming Languages"},
+        "CAP4623": {"credits": 3, "name": "Trustworthy Artificial Intelligence"}
       }
     }
   }

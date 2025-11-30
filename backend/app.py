@@ -16,7 +16,8 @@ from core.planner import greedy_plan
 from core.scheduler import pick_sections
 from core.policy_agent import draft_override
 from core.explainer_agent import explain_decision
-from core.pdf_parser import pdf_to_transcript
+from core.pdf_parser import pdf_to_transcript, extract_text_and_courses
+from datetime import datetime
 from core.chat_agent import chat_with_student
 
 app = FastAPI(title="Agentic Degree Advisor")
@@ -63,6 +64,29 @@ def upload_transcript_pdf(file: UploadFile = File(...)):
     audit_res = audit_program(transcript, program)
     _, planned = greedy_plan(transcript, program, [OFFERINGS.get("term","2026S"), "2026F"])
     return {"transcript": transcript, "audit": audit_res, "planned_terms": planned}
+
+
+@app.post("/debug_extract_pdf")
+def debug_extract_pdf(file: UploadFile = File(...), save: bool = False):
+    """Dev endpoint: return extracted raw text and parsed course rows from the uploaded PDF.
+
+    If `save=true` is provided, the uploaded PDF will be written to `backend/data/uploads/` for inspection.
+    """
+    pdf_bytes = file.file.read()
+    res = extract_text_and_courses(pdf_bytes)
+
+    if save:
+        uploads_dir = os.path.join(BASE_DIR, "data", "uploads")
+        os.makedirs(uploads_dir, exist_ok=True)
+        fname = datetime.utcnow().strftime("transcript_%Y%m%dT%H%M%SZ.pdf")
+        path = os.path.join(uploads_dir, fname)
+        try:
+            with open(path, "wb") as f:
+                f.write(pdf_bytes)
+        except Exception:
+            pass
+
+    return {"text": res["text"], "parsed_courses": res["courses"]}
 
 @app.post("/audit")
 def audit(req: AuditRequest):
