@@ -1,6 +1,7 @@
 // frontend/src/components/ChatPanel.tsx
 
 import React, { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 import { chat } from '../api'
 
 type Message = { role: 'user' | 'assistant'; content: string }
@@ -115,7 +116,23 @@ export default function ChatPanel({
               <strong style={{ fontSize: 11, opacity: 0.8 }}>
                 {m.role === 'user' ? 'You' : 'Advisor'}
               </strong>
-              <div style={{ marginTop: 2, whiteSpace: 'pre-wrap' }}>{m.content}</div>
+             <div style={{ marginTop: 2 }}> {/* Removed whiteSpace: 'pre-wrap' */}
+                {m.role === 'assistant' ? (
+                  <ReactMarkdown
+                    components={{
+                      h4: ({node, ...props}) => <div style={{marginLeft: 16, fontWeight: 600, fontSize: '1.05em', marginTop: 8, marginBottom: 2, color: '#ffe066'}} {...props} />,
+                      strong: ({node, ...props}) => <strong style={{fontWeight: 700, color: '#91c0ebff'}} {...props} />,
+                    }}
+                  >
+                    {m.content}
+                  </ReactMarkdown>
+                ) : (
+                  // You might want to keep pre-wrap ONLY for user messages if they aren't markdown
+                  <div style={{ whiteSpace: 'pre-wrap' }}>
+                      {m.content}
+                  </div>
+                )}
+              </div> 
             </div>
           </div>
         ))}

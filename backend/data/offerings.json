@@ -2,52 +2,68 @@
   "term": "2026S",
   "sections": {
     "COP3530": [
-      {
-        "crn": "12345",
-        "days": "MWF",
-        "start": "10:00",
-        "end": "10:50",
-        "cap": 40,
-        "enrolled": 38
-      },
-      {
-        "crn": "67890",
-        "days": "TR",
-        "start": "14:00",
-        "end": "15:15",
-        "cap": 40,
-        "enrolled": 40
-      }
+      { "crn": "12345", "days": "MWF", "start": "10:00", "end": "10:50", "cap": 40, "enrolled": 38 },
+      { "crn": "67890", "days": "TR", "start": "14:00", "end": "15:15", "cap": 40, "enrolled": 40 }
     ],
-    "CDA3103": [
-      {
-        "crn": "23456",
-        "days": "TR",
-        "start": "11:00",
-        "end": "12:15",
-        "cap": 50,
-        "enrolled": 41
-      }
+    "CDA3203": [
+      { "crn": "23457", "days": "MWF", "start": "11:00", "end": "11:50", "cap": 45, "enrolled": 42 }
     ],
-    "CEN4020": [
-      {
-        "crn": "34567",
-        "days": "MWF",
-        "start": "09:00",
-        "end": "09:50",
-        "cap": 40,
-        "enrolled": 35
-      }
+    "CDA4102": [
+      { "crn": "23458", "days": "TR", "start": "09:30", "end": "10:45", "cap": 40, "enrolled": 37 }
+    ],
+    "CEN4010": [
+      { "crn": "23459", "days": "MWF", "start": "13:00", "end": "13:50", "cap": 40, "enrolled": 39 }
+    ],
+    "COP2220": [
+      { "crn": "23460", "days": "TR", "start": "08:00", "end": "09:15", "cap": 50, "enrolled": 48 }
+    ],
+    "COP3014": [
+      { "crn": "23461", "days": "MWF", "start": "12:00", "end": "12:50", "cap": 40, "enrolled": 36 }
+    ],
+    "COP3540": [
+      { "crn": "23462", "days": "TR", "start": "16:00", "end": "17:15", "cap": 35, "enrolled": 33 }
+    ],
+    "COP4020": [
+      { "crn": "23463", "days": "MWF", "start": "09:00", "end": "09:50", "cap": 30, "enrolled": 28 }
+    ],
+    "COP3813": [
+      { "crn": "23464", "days": "TR", "start": "11:00", "end": "12:15", "cap": 35, "enrolled": 32 }
+    ],
+    "COP4655": [
+      { "crn": "23465", "days": "MWF", "start": "14:00", "end": "14:50", "cap": 30, "enrolled": 27 }
     ],
     "CIS4360": [
-      {
-        "crn": "45678",
-        "days": "TR",
-        "start": "15:30",
-        "end": "16:45",
-        "cap": 35,
-        "enrolled": 35
-      }
+      { "crn": "45678", "days": "TR", "start": "15:30", "end": "16:45", "cap": 35, "enrolled": 35 }
+    ],
+    "CEN4072": [
+      { "crn": "23466", "days": "MWF", "start": "15:00", "end": "15:50", "cap": 30, "enrolled": 29 }
+    ],
+    "COP3834": [
+      { "crn": "23467", "days": "TR", "start": "13:00", "end": "14:15", "cap": 30, "enrolled": 28 }
+    ],
+    "CAP4630": [
+      { "crn": "23468", "days": "MWF", "start": "08:00", "end": "08:50", "cap": 25, "enrolled": 22 }
+    ],
+    "CAP4770": [
+      { "crn": "23469", "days": "TR", "start": "10:00", "end": "11:15", "cap": 25, "enrolled": 20 }
+    ],
+    "CAP4613": [
+      { "crn": "23470", "days": "MWF", "start": "16:00", "end": "16:50", "cap": 20, "enrolled": 18 }
+    ],
+    "CNT4403": [
+      { "crn": "23471", "days": "TR", "start": "12:30", "end": "13:45", "cap": 30, "enrolled": 28 }
+    ],
+    "CIS4634": [
+      { "crn": "23472", "days": "MWF", "start": "10:00", "end": "10:50", "cap": 30, "enrolled": 27 }
+    ],
+    "CNT4411": [
+      { "crn": "23473", "days": "TR", "start": "14:30", "end": "15:45", "cap": 30, "enrolled": 29 }
+    ],
+    "EGN4950C": [
+      { "crn": "23474", "days": "MWF", "start": "11:00", "end": "11:50", "cap": 20, "enrolled": 19 }
+    ],
+    "EGN4952C": [
+      { "crn": "23475", "days": "TR", "start": "09:00", "end": "10:15", "cap": 20, "enrolled": 18 }
     ]
   }
 }
