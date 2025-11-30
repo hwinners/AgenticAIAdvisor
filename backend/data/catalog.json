@@ -16,15 +16,6 @@
           ]
         },
         {
-          "id": "Science",
-          "label": "Science (Choose 2)",
-          "type": "choose_n",
-          "n": 2,
-          "from": [
-            "PHY2048", "PHY2049", "CHM2045", "BSC1010", "GLY2010"
-          ]
-        },
-        {
           "id": "CS_Core",
           "label": "Computer Science Core",
           "type": "all_of",

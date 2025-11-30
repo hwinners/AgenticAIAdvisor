@@ -12,6 +12,7 @@ export const loadCatalog = async (major: string) => {
       return await import("./catalog - BSCivil.json");
     // add the rest…
     default:
-      throw new Error("Unknown major: " + major);
+      console.warn(`Unknown major: ${major}, defaulting to BSComputerScience`);
+      return await import("./catalog - BSComputerScience.json");
   }
 };
