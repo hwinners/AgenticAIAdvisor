@@ -13,3 +13,7 @@ frontend/dist/
 
 # Ignore Vite cache - These files change every time you run the dev server.
 frontend/.vite/
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc

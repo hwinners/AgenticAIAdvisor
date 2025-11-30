@@ -101,7 +101,43 @@
           "credits": 3,
           "area": "cs"
         },
+
+
+
+        
         "AML2010": {
+          "credits": 3,
+          "area": "gen_ed"
+        },
+        "ENG1101": {
+          "credits": 3,
+          "area": "gen_ed"
+        },
+        "ENG2311": {
+          "credits": 3,
+          "area": "gen_ed"
+        },
+        "HUM2230": {
+          "credits": 3,
+          "area": "gen_ed"
+        },
+        "HUM3401": {
+          "credits": 3,
+          "area": "gen_ed"
+        },
+        "SCI1000": {
+          "credits": 4,
+          "area": "gen_ed"
+        },
+        "SCI2000": {
+          "credits": 4,
+          "area": "gen_ed"
+        },
+        "PSY2012": {
+          "credits": 3,
+          "area": "gen_ed"
+        },
+        "SOC1000": {
           "credits": 3,
           "area": "gen_ed"
         }

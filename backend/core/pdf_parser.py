@@ -3,7 +3,15 @@ from typing import List, Dict
 import pdfplumber
 from pdf2image import convert_from_bytes
 import pytesseract
-COURSE_ROW_REGEX = re.compile(r"(?P<code>[A-Z]{2,4}\s*\d{3,4})\s+[-\w,\.:()\/\s]{0,80}?(?P<term>\d{4}[FSUW])\s+(?P<grade>(?:A|B|C|D|F|CR|S|U|P|NP|W|I)[\+\-]?)\s+(?P<credits>\d+(?:\.\d)?)")
+COURSE_ROW_REGEX = re.compile(
+    r"[\"']?(?P<term>\d{4})[\"']?"           # Term: 4 digits (e.g. 2205), optional quotes
+    r".*?"                                   # Junk chars (commas, whitespace)
+    r"[\"']?(?P<code>[A-Z]{3}\s?\d{4})[\"']?" # Code: 3 letters + 4 digits (e.g. COP2220)
+    r".*?"                                   # Junk chars
+    r"[\"']?(?P<credits>\d+\.\d{2})[\"']?"   # Credits: e.g. 3.00
+    r".*?"                                   # Junk chars
+    r"[\"']?(?P<grade>[A-Z][\+\-]?)[\"']?"   # Grade: A, B+, etc.
+)
 ID_REGEX       = re.compile(r"\b(Z\d{7,9})\b")
 NAME_REGEX     = re.compile(r"Name[:\s]+([A-Z][A-Za-z\-']+(?:\s[A-Z][A-Za-z\-']+)*)")
 TRANSFER_REGEX = re.compile(r"Transfer\s+Credits[:\s]+(\d+)", re.IGNORECASE)
