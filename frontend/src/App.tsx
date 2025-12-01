@@ -76,7 +76,7 @@ export default function App() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        background: '#101624',
+        background: 'transparent', // Changed from '#101624' to transparent
         padding: '32px 0',
       }}
     >
