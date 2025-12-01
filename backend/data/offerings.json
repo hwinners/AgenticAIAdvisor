@@ -64,6 +64,13 @@
     ],
     "EGN4952C": [
       { "crn": "23475", "days": "TR", "start": "09:00", "end": "10:15", "cap": 20, "enrolled": 18 }
+    ],
+    "CNT4007": [
+      { "crn": "23476", "days": "TR", "start": "18:30", "end": "19:45", "cap": 30, "enrolled": 25 }
+    ],
+    "COT4400": [
+      { "crn": "23477", "days": "MWF", "start": "11:00", "end": "11:50", "cap": 30, "enrolled": 20 },
+      { "crn": "23478", "days": "TR", "start": "14:00", "end": "15:15", "cap": 40, "enrolled": 35 }
     ]
   }
 }
