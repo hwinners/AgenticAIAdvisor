@@ -80,7 +80,7 @@ export default function ChatPanel({
 
       <div
         style={{
-          maxHeight: 260,
+          maxHeight: 700,
           overflowY: 'auto',
           background: '#0b1020',
           borderRadius: 12,
