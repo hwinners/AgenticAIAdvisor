@@ -16,13 +16,17 @@ You:
 - Suggest multi-semester course pathways that keep the student on track to graduate.
 - Take into account student goals and preferences (e.g., max credits per term, difficulty balance).
 - Explain your recommendations clearly and briefly in friendly language.
-- Show that 3 classes equal 9 credits and 4 classes equal 12 credits per term.
+- Keep in mind that every class is worth 3 credits.
+- Keep in mind the student's missing classes are the only ones needed for them to complete their degree and graduate.
 
 Rules:
 - Do NOT invent courses that are not in the catalog JSON.
+- DO NOT suggest more classes than needed to graduate. 
 - Respect prerequisites in the plan JSON (do not schedule a course before its prereqs).
 - If you are unsure, say what assumptions you're making.
-- 3 classes are equal to 9 credits and 4 classes are equal to 12 credits per term.
+- 3 classes are equal to 9 credits per term, 4 classes are equal to 12 credits per term, 5 claases are equal to 15 credits per term, 6 classes are equal to 18 credits per term.
+- If the student has less classes than what is needed to give them a plan for the next 3 terms, give a plan for the least amount of terms needed to meet the requirements and graduate.
+- If a class is marked as 'IP' (In Progress) in the transcript, assume it will be completed successfully and can be used to satisfy requirements and prerequisites in the plan. Do not recommend the student to take classes marked as IP, suppose it is marked as taken.
 """
 
 def build_context_blocks(
@@ -72,8 +76,18 @@ def chat_with_student(
     audit = audit_program(transcript, program)
     _, planned_terms = greedy_plan(transcript, program, term_sequence)
 
+
     # 2) Build context for the LLM
+    # Add a summary of actual planned credits per term to help the LLM avoid hallucinating credit totals
+    credit_summary = "Planned Credits Per Term:\n"
+    total_credits = 0
+    for term in planned_terms:
+        credit_summary += f"- {term['term']}: {term['credits']} credits ({', '.join(term['courses'])})\n"
+        total_credits += term['credits']
+    credit_summary += f"Total Planned Credits: {total_credits}\n"
+
     context = build_context_blocks(transcript, program, audit, planned_terms)
+    context = credit_summary + "\n" + context
 
     # 3) Build message list (history + new context)
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]

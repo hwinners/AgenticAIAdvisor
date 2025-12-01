@@ -2,7 +2,7 @@
   "programs": {
     "BS_CS": {
       "name": "B.S. Computer Science",
-      "total_credits": 120,
+      "total_credits": 75,
       "requirements": [
         {
           "id": "Mathematics",

@@ -22,6 +22,7 @@ def greedy_plan(transcript, program, term_sequence: List[str]):
     remaining = list(collect_missing_courses(audit))
     planned_terms = []
     already_planned = set()
+    # Only plan as many terms as needed to finish all missing courses.
     for term in term_sequence:
         bucket, credits = [], 0
         for c in sorted(list(remaining)):
@@ -34,5 +35,6 @@ def greedy_plan(transcript, program, term_sequence: List[str]):
         if bucket:
             planned_terms.append({"term": term, "courses": bucket, "credits": credits})
         if not remaining:
+            # Early exit: all requirements are planned, so stop adding terms.
             break
     return audit, planned_terms
