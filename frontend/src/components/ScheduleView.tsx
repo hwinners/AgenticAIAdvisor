@@ -70,40 +70,48 @@ export default function ScheduleView({ term, chosen, needs }: Props) {
           gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
           gap: 12,
           marginTop: 12,
+          alignItems: 'start',
         }}
       >
         {sections.map((section, idx) => (
-          <div
-            key={`${section.course}-${section.crn || idx}`}
-            className="card"
-            style={{
-              border: section.note ? '1px solid #f99' : '1px solid #1f2937',
-              padding: '12px 14px',
-              background: '#0d1117',
-              color: '#f8fafc',
-            }}
-          >
-            <div style={{ fontWeight: 700, fontSize: 16 }}>{section.course}</div>
-            <div style={{ fontSize: 13, color: '#cbd5f5', marginTop: 4 }}>
-              CRN {section.crn || 'TBA'}
-            </div>
-            <div style={{ marginTop: 10, fontSize: 14 }}>
-              <div>{formatDays(section.days)}</div>
-              <div>{formatTimeRange(section.start, section.end)}</div>
-            </div>
-            <div style={{ marginTop: 10, fontSize: 12, color: '#94a3b8' }}>
-              {typeof section.enrolled === 'number' && typeof section.cap === 'number'
-                ? `${section.enrolled}/${section.cap} enrolled`
-                : null}
-            </div>
+          <div key={`${section.course}-${section.crn || idx}`} style={{ height: '100%', boxSizing: 'border-box', display: 'flex' }}>
             <div
+              className="card"
               style={{
-                marginTop: 10,
-                fontSize: 12,
-                color: section.note ? '#ff9aa2' : '#34d399',
+                border: section.note ? '1px solid #f99' : '1px solid #1f2937',
+                padding: '12px 14px',
+                background: '#0d1117',
+                color: '#f8fafc',
+                height: '100%',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxSizing: 'border-box',
               }}
             >
-              {sectionStatus(section)}
+              <div style={{ fontWeight: 700, fontSize: 16 }}>{section.course}</div>
+              <div style={{ fontSize: 13, color: '#cbd5f5', marginTop: 4 }}>
+                CRN {section.crn || 'TBA'}
+              </div>
+              <div style={{ marginTop: 10, fontSize: 14 }}>
+                <div>{formatDays(section.days)}</div>
+                <div>{formatTimeRange(section.start, section.end)}</div>
+              </div>
+              <div style={{ marginTop: 10, fontSize: 12, color: '#94a3b8' }}>
+                {typeof section.enrolled === 'number' && typeof section.cap === 'number'
+                  ? `${section.enrolled}/${section.cap} enrolled`
+                  : null}
+              </div>
+              <div
+                style={{
+                  marginTop: 10,
+                  fontSize: 12,
+                  color: section.note ? '#ff9aa2' : '#34d399',
+                }}
+              >
+                {sectionStatus(section)}
+              </div>
             </div>
           </div>
         ))}
