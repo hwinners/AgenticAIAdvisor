@@ -4,20 +4,23 @@ import { explain } from '../api';
 type Props = {
   planned_terms: any[] | null;
   requirements: any[] | null;
+  selectedCourses: string[];
+  onToggleCourse: (course: string) => void;
+  onApply: () => void;
 };
 
 export default function OverrideDrafts({
   planned_terms,
   requirements,
+  selectedCourses,
+  onToggleCourse,
+  onApply,
 }: Props) {
 
   const next = planned_terms?.[0];
   const [explanation, setExplanation] = useState<string>('');
-  // Track confirmed courses in state
-  const [confirmed, setConfirmed] = useState<string[]>([]);
 
   if (!next || !requirements) return null;
-
 
   async function why(course: string) {
     const res = await explain({
@@ -29,10 +32,6 @@ export default function OverrideDrafts({
     setExplanation(res.explanation);
   }
 
-  function confirmCourse(course: string) {
-    setConfirmed((prev) => prev.includes(course) ? prev : [...prev, course]);
-  }
-
   return (
     <div className="card">
       <h3>Policy Automation & Explainability</h3>
@@ -41,7 +40,7 @@ export default function OverrideDrafts({
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12, marginTop: 8, alignItems: 'stretch' }}>
         {next.courses.map((c: string) => {
-          const isConfirmed = confirmed.includes(c);
+          const isConfirmed = selectedCourses.includes(c);
           return (
             <div key={c} style={{ height: '100%', boxSizing: 'border-box', display: 'flex' }}>
               <div className="card" style={{
@@ -61,19 +60,28 @@ export default function OverrideDrafts({
                   <button className="btn" onClick={() => why(c)}>
                     Why this course?
                   </button>
-                  {!isConfirmed && (
-                    <button className="btn" style={{ background: '#22d3ee', color: '#0f172a' }} onClick={() => confirmCourse(c)}>
-                      Confirm
-                    </button>
-                  )}
-                  {isConfirmed && (
-                    <span style={{ color: '#22d3ee', fontWeight: 600 }}>Confirmed</span>
-                  )}
+                  <button
+                    className="btn"
+                    style={{ background: isConfirmed ? '#f87171' : '#22d3ee', color: '#0f172a' }}
+                    onClick={() => onToggleCourse(c)}
+                  >
+                    {isConfirmed ? 'Unconfirm' : 'Confirm'}
+                  </button>
                 </div>
               </div>
             </div>
           );
         })}
+      </div>
+      <div style={{ marginTop: 16, textAlign: 'right' }}>
+        <button
+          className="btn"
+          style={{ background: '#22d3ee', color: '#0f172a', fontWeight: 600 }}
+          onClick={onApply}
+          disabled={selectedCourses.length === 0}
+        >
+          Apply Confirmed Courses
+        </button>
       </div>
       {explanation && (
         <>

@@ -10,6 +10,7 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import orjson
+from typing import Optional, List  # Added for type hinting
 from core.utils import load_json
 from core.audit import audit_program
 from core.planner import greedy_plan
@@ -133,6 +134,10 @@ class ChatRequest(BaseModel):
     preferences: dict = {}
     history: list[ChatMessage] = []
     term_sequence: list = [OFFERINGS.get("term", "2026S"), "2026F", "2027S"]
+    # ---------------------------------------------------------
+    # 1. Added field to receive the current plan from frontend
+    # ---------------------------------------------------------
+    planned_terms: Optional[list] = None 
 
 @app.post("/chat")
 def chat(req: ChatRequest):
@@ -144,6 +149,10 @@ def chat(req: ChatRequest):
         preferences=req.preferences,
         history=[m.model_dump() for m in req.history],
         term_sequence=req.term_sequence,
+        # ---------------------------------------------------------
+        # 2. Pass the plan to the agent function
+        # ---------------------------------------------------------
+        existing_plan=req.planned_terms 
     )
     # result already has reply + engine outputs
     return result

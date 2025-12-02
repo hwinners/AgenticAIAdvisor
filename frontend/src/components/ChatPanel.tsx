@@ -1,5 +1,3 @@
-// frontend/src/components/ChatPanel.tsx
-
 import React, { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { chat } from '../api'
@@ -10,6 +8,8 @@ type Props = {
   transcript: any | null
   audit: any[] | null
   plannedTerms: any[] | null
+  // This prop was causing the type error; now it is explicitly defined
+  confirmedSelection?: string[] 
   onUpdateAudit: (a: any[]) => void
   onUpdatePlan: (p: any[]) => void
 }
@@ -18,6 +18,7 @@ export default function ChatPanel({
   transcript,
   audit,
   plannedTerms,
+  confirmedSelection = [],
   onUpdateAudit,
   onUpdatePlan,
 }: Props) {
@@ -35,12 +36,21 @@ export default function ChatPanel({
     setInput('')
     setLoading(true)
 
+    // Filter the plan if the user has confirmed specific courses
+    let termsToSend = plannedTerms;
+    if (confirmedSelection.length > 0 && plannedTerms && plannedTerms.length > 0) {
+      // Create a shallow copy of the plan where the first term only includes confirmed courses
+      const firstTerm = { ...plannedTerms[0], courses: confirmedSelection };
+      termsToSend = [firstTerm, ...plannedTerms.slice(1)];
+    }
+
     try {
       const res = await chat({
         transcript,
         goals,
         preferences: {},
         history: newHistory,
+        planned_terms: termsToSend, 
       })
 
       if (res.reply) {
@@ -116,7 +126,7 @@ export default function ChatPanel({
               <strong style={{ fontSize: 11, opacity: 0.8 }}>
                 {m.role === 'user' ? 'You' : 'Advisor'}
               </strong>
-             <div style={{ marginTop: 2 }}> {/* Removed whiteSpace: 'pre-wrap' */}
+             <div style={{ marginTop: 2 }}> 
                 {m.role === 'assistant' ? (
                   <ReactMarkdown
                     components={{
@@ -127,7 +137,6 @@ export default function ChatPanel({
                     {m.content}
                   </ReactMarkdown>
                 ) : (
-                  // You might want to keep pre-wrap ONLY for user messages if they aren't markdown
                   <div style={{ whiteSpace: 'pre-wrap' }}>
                       {m.content}
                   </div>

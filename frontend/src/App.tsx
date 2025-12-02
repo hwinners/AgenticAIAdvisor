@@ -16,6 +16,10 @@ export default function App() {
   const [needs, setNeeds] = useState<any[] | null>(null);
   const [selectedMajor, setSelectedMajor] = useState<string>('BSComputerScience');
   const [scheduleTerm, setScheduleTerm] = useState<string | null>(null);
+  
+  // NEW: Lifted state for confirmed courses so it persists across chat updates
+  const [confirmedCourses, setConfirmedCourses] = useState<string[]>([]);
+
   const program_id = 'BSCSE';
 
   async function handleLoaded(t: any, extra?: any) {
@@ -23,6 +27,7 @@ export default function App() {
     setChosen(null);
     setNeeds(null);
     setScheduleTerm(null);
+    setConfirmedCourses([]); // Reset selection on new transcript
 
     // infer major
     try {
@@ -68,6 +73,28 @@ export default function App() {
     setScheduleTerm(s.term || null);
   }
 
+  function handleToggleCourse(course: string) {
+    setConfirmedCourses((prev) => {
+      if (prev.includes(course)) {
+        return prev.filter((c) => c !== course);
+      } else {
+        return [...prev, course];
+      }
+    });
+  }
+
+  function handleApplyCourses() {
+    setPlanned((prev) => {
+      if (!prev || prev.length === 0) return prev;
+      const updated = [
+        { ...prev[0], courses: confirmedCourses },
+        ...prev.slice(1),
+      ];
+      return updated;
+    });
+    // Optional: setConfirmedCourses([]) if you want to clear selection after applying
+  }
+
   return (
     <div
       className="container"
@@ -76,7 +103,7 @@ export default function App() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        background: 'transparent', // Changed from '#101624' to transparent
+        background: 'transparent',
         padding: '32px 0',
       }}
     >
@@ -107,12 +134,19 @@ export default function App() {
 
         {planned && auditRes && transcript && (
           <>
-            <OverrideDrafts planned_terms={planned} requirements={auditRes} />
+            <OverrideDrafts
+              planned_terms={planned}
+              requirements={auditRes}
+              selectedCourses={confirmedCourses}
+              onToggleCourse={handleToggleCourse}
+              onApply={handleApplyCourses}
+            />
             <CourseSearch />
             <ChatPanel
               transcript={transcript}
               audit={auditRes}
               plannedTerms={planned}
+              confirmedSelection={confirmedCourses} // Pass selection to chat
               onUpdateAudit={setAuditRes}
               onUpdatePlan={setPlanned}
             />
