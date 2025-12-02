@@ -27,6 +27,7 @@ Rules:
 - 3 classes are equal to 9 credits per term, 4 classes are equal to 12 credits per term, 5 claases are equal to 15 credits per term, 6 classes are equal to 18 credits per term.
 - If the student has less classes than what is needed to give them a plan for the next 3 terms, give a plan for the least amount of terms needed to meet the requirements and graduate.
 - If a class is marked as 'IP' (In Progress) in the transcript, assume it will be completed successfully and can be used to satisfy requirements and prerequisites in the plan. Do not recommend the student to take classes marked as IP, suppose it is marked as taken.
+- If EGN4950C has already been taken or is in progress, always suggest to the student in the plan and proposed schedule EGN4952C for Term 1 since it is required for the student to take it as soon as possible. 
 """
 
 def build_context_blocks(
