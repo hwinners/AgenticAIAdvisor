@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UploadTranscript from './components/UploadTranscript';
 import AuditView from './components/AuditView';
 import PlanView from './components/PlanView';
@@ -17,19 +17,26 @@ export default function App() {
   const [selectedMajor, setSelectedMajor] = useState<string>('BSComputerScience');
   const [scheduleTerm, setScheduleTerm] = useState<string | null>(null);
   
-  // NEW: Lifted state for confirmed courses so it persists across chat updates
+  // Lifted state for confirmed courses
   const [confirmedCourses, setConfirmedCourses] = useState<string[]>([]);
 
   const program_id = 'BSCSE';
+
+  // ---------------------------------------------------------
+  // THE FIX: Automatically clear confirmed courses when the term changes
+  // ---------------------------------------------------------
+  const currentTerm = planned?.[0]?.term;
+  useEffect(() => {
+    setConfirmedCourses([]);
+  }, [currentTerm]);
 
   async function handleLoaded(t: any, extra?: any) {
     setTranscript(t);
     setChosen(null);
     setNeeds(null);
     setScheduleTerm(null);
-    setConfirmedCourses([]); // Reset selection on new transcript
+    setConfirmedCourses([]); 
 
-    // infer major
     try {
       const programCode = t?.student?.program;
       if (programCode) {
@@ -49,7 +56,6 @@ export default function App() {
       }
     } catch {}
 
-    // if extra payload provided
     if (extra?.audit && extra?.planned_terms) {
       setAuditRes(extra.audit);
       setPlanned(extra.planned_terms);
@@ -60,7 +66,6 @@ export default function App() {
       return;
     }
 
-    // normal flow
     const a = await audit(t, program_id);
     setAuditRes(a.audit);
 
@@ -92,7 +97,6 @@ export default function App() {
       ];
       return updated;
     });
-    // Optional: setConfirmedCourses([]) if you want to clear selection after applying
   }
 
   return (
@@ -146,7 +150,7 @@ export default function App() {
               transcript={transcript}
               audit={auditRes}
               plannedTerms={planned}
-              confirmedSelection={confirmedCourses} // Pass selection to chat
+              confirmedSelection={confirmedCourses}
               onUpdateAudit={setAuditRes}
               onUpdatePlan={setPlanned}
             />

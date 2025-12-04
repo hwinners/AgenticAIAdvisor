@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { explain } from '../api';
 
 type Props = {
@@ -19,6 +19,14 @@ export default function OverrideDrafts({
 
   const next = planned_terms?.[0];
   const [explanation, setExplanation] = useState<string>('');
+  
+  // Track if the user has applied the current selection
+  const [hasApplied, setHasApplied] = useState(false);
+
+  // Reset the "Applied" state if the term changes
+  useEffect(() => {
+    setHasApplied(false);
+  }, [next?.term]);
 
   if (!next || !requirements) return null;
 
@@ -31,6 +39,18 @@ export default function OverrideDrafts({
     });
     setExplanation(res.explanation);
   }
+
+  const handleApplyClick = () => {
+    if (hasApplied) {
+      // If already applied, clicking "Change" resets the button state 
+      // so the user can edit and click "Apply" again.
+      setHasApplied(false);
+    } else {
+      // If not applied, clicking "Apply" triggers the update and locks the state.
+      onApply();
+      setHasApplied(true);
+    }
+  };
 
   return (
     <div className="card">
@@ -77,10 +97,12 @@ export default function OverrideDrafts({
         <button
           className="btn"
           style={{ background: '#22d3ee', color: '#0f172a', fontWeight: 600 }}
-          onClick={onApply}
-          disabled={selectedCourses.length === 0}
+          onClick={handleApplyClick}
+          // Button is disabled only if no courses are selected AND we haven't applied yet.
+          // If we HAVE applied, we want the button enabled so we can click "Change".
+          disabled={!hasApplied && selectedCourses.length === 0}
         >
-          Apply Confirmed Courses
+          {hasApplied ? 'Change Confirmed Courses' : 'Apply Confirmed Courses'}
         </button>
       </div>
       {explanation && (
